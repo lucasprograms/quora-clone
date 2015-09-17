@@ -1,0 +1,292 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html, body, textarea, div, ul, a, button, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+div textarea {
+  font-weight: 400;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  overflow-y: scroll;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 1.4;
+  min-height: 50px;
+  max-height: 80px;
+  overflow-y: auto;
+  resize: none;
+  width: 100%
+}
+
+textarea:focus {
+  outline-color: #2b6dad;
+}
+
+html {
+  height: 100%;
+  font-weight: 400;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+body {
+  color: #333;
+  font-size: 13px;
+  overflow-y: scroll;
+  overflow-x: auto;
+  height: 100%;
+  word-wrap: break-word;
+}
+
+div {
+  display: block;
+}
+
+.backdrop {
+  display: block;
+  clear: both;
+}
+
+.column-header {
+  font-family: Georgia,Times,"Times New Roman",serif;
+  font-size: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.header-nav {
+  width: 1000px;
+  margin: 0px auto;
+  border: 2px solid black;
+  height: 50px
+}
+
+.header {
+  float: left;
+  display: block;
+  padding: 15px 0px;
+  margin: 0px 7.5px;
+}
+
+div.header.header-search input {
+  display: block;
+  width: 370px;
+  background: #ccc;
+  margin: 15px 7.5px;
+  padding: 0 2px;
+  border: 1px solid #aaa;
+}
+
+.header-search {
+  width: 370px;
+}
+
+.header-notifications {
+  width: 115px;
+}
+
+.header-write {
+  width: 75px;
+}
+
+.header-index {
+  width: 75px;
+}
+
+.header-profile {
+  width: 85px;
+}
+
+.form-header {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.question-form-wrapper {
+  width: 410px;
+  margin: 0 auto;
+}
+
+.inline-answer {
+  border: 1px solid #e2e2e2;
+}
+
+.answer-form {
+  min-height: 120px;
+  border-radius: 0px;
+}
+
+.topic-list-item {
+  float: left;
+}
+
+.main-wrapper {
+  margin: 10px auto;
+  width: 574px;
+}
+
+.feed.question-title {
+  font-size: 19px;
+  letter-spacing: -0.5px;
+}
+
+.question-title {
+    color: #333;
+    line-height: 1.25;
+    font-weight: bold;
+}
+
+.show.question-title {
+  letter-spacing: -1px;
+  font-size: 24px;
+}
+
+.feed.answer-body {
+  font-family: Georgia,Times,"Times New Roman",serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.feed.answer-author.bio {
+  font-size: 15px;
+  line-height: 1.4;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.feed.question-answer-item {
+  width: 530px;
+  margin: 15px 20px;
+}
+
+.form-submit {
+  float: right;
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.answer-form-footer {
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 5px 10px 5px 0px;
+}
+
+.answer-form-footer > button {
+  margin-right: 10px;
+}
+
+.primary-button {
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 500;
+  outline: 0;
+  padding: 3px 7px 4px 7px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background: #3e78ad;
+  color: #fff;
+  border: 0;
+  float: left;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
+}
+
+.action-bar {
+  font-size: 13px;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
+  background: #f1f8fb;
+  color: #2b6dad;
+  border: 1px solid #bbcadc;
+}
+
+.primary-button:hover {
+  border: 1px solid #3a66ad;
+}
+
+.secondary-button {
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px 0 rgba(200,200,200,0.2);
+  display: inline-block;
+  font-weight: 500;
+  outline: 0;
+  padding: 3px 7px 4px 7px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #6d6d6d;
+  border: 1px solid #cbcbd8;
+  background: #f6f6f9;
+}
+
+.secondary-button:hover {
+  border: 1px solid #656565;
+  color: #656565;
+}
+
+.tertiary-button {
+  color: #999;
+  font-size: 12px;
+}
+
+.answer-form-footer .tertiary-button {
+  position: relative;
+  bottom: -5px;
+}
+
+.tertiary-button:hover {
+  text-decoration: underline;
+}
+
+div .header-ask-question {
+  width: 120px;
+  margin-left: 15px;
+}
+
+.question-index-item {
+  padding-top: 8px;
+}

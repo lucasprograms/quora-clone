@@ -1,0 +1,6 @@
+<label for="question-topic">Topic: </label>
+<select class="question-topic" name="question[topic_id]" value='<%= question.escape('topic_id') %>'>
+  <% Topic.all.each do |topic| %>
+  <option value="<%= topic.id %>"><%= topic.subject %></option>
+  <% end %>
+</select>

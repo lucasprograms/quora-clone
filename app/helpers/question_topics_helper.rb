@@ -1,0 +1,2 @@
+module QuestionTopicsHelper
+end

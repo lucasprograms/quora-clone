@@ -1,0 +1,19 @@
+<h1> Sign Up </h1>
+
+<form action = " <%= users_url %>" method = "POST">
+
+  <%= render partial: "layouts/login" %>
+
+  <button>Sign Up</button>
+</form>
+
+<br><br><br><br>
+
+<h1> Sign In </h1>
+
+<form action = " <%= session_url %>" method = "POST">
+
+  <%= render partial: "layouts/login" %>
+
+  <button>Sign In</button>
+</form>

@@ -1,0 +1,24 @@
+
+<div class="question-form-wrapper group">
+  <label class="form-header" for="title">Question: </label> <br>
+  <textarea id="title" name="title"><%= question.escape('title') %></textarea>
+
+  <br><br>
+
+  <label class="form-header" for="body">Question Details: </label> <br>
+  <textarea id="body" name="body"><%= question.escape('body') %></textarea>
+
+  <br><br>
+
+  <label class="form-header" for="question-topic">Topic: </label> <br>
+  <select id="topic" name="topic">
+    <% topics.each(function (topic) { %>
+    <option name="topic" value="<%= topic.escape('id') %>"><%= topic.escape('subject') %></option>
+    <% }) %>
+  </select>
+
+
+  <br><br>
+
+  <button class='form-submit primary-button submit'>SUBMIT</button>
+</div>

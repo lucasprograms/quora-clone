@@ -1,0 +1,21 @@
+<div class="question-index-item">
+  <div class="show-item-description">
+
+  </div>
+  <div class="feed question-title"><%= question.escape('title') %></div>
+  <% if (question.answers()) { %>
+    <% numAnswers = question.answers().length === 1 ? 'Answer' : 'Answers' %>
+    <div class="secondary-text"><%= question.answers().length%> <%= numAnswers %></div>
+  <% } %>
+  <div class="new-answer-to-question"></div>
+  <div class="answer-form-footer group">
+    <button class="primary-button action-bar answer-question"
+            data-id="<%= question.escape('id')%>">
+            Write Answer
+    </button>
+    <button class="secondary-button action-bar answer-question"
+            data-id="<%= question.escape('id')%>">
+            Pass
+    </button>
+  </div>
+</div>

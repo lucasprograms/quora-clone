@@ -1,0 +1,29 @@
+  <div class="show-item-description">
+
+  </div>
+  <div class="feed question-title">
+    <a href="#questions/<%= question.escape('id')%>"><%= question.escape('title') %></a>
+  </div>
+  <div class="feed answer-author bio">
+    ANSWER AUTHOR BIO HERE
+  </div>
+  <div class="feed answer-body">
+    <%= answer.escape('body') %>
+  </div>
+  <div class="answer-form-footer group">
+    <button class="primary-button action-bar"
+            data-id="<%= question.escape('id')%>">
+            Upvote
+    <button class="tertiary-button"
+            data-id="<%= question.escape('id')%>">
+            Downvote
+    </button>
+    <button class="tertiary-button show-comments"
+            data-id="<%= question.escape('id')%>">
+            Comments
+    </button>
+    <button class="tertiary-button"
+            data-id="<%= question.escape('id')%>">
+            Share
+    </button>
+  </div>

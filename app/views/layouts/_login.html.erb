@@ -1,0 +1,14 @@
+<%= form_auth_token %>
+
+<label for = "email">Email</label>
+<input
+  type = "text"
+  value = "<%= @user.email %>"
+  id = "email"
+  name = "user[email]">
+
+<label for = "password">Password</label>
+<input
+  type = "password"
+  id = "password"
+  name = "user[password]">
