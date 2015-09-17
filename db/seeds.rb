@@ -40,12 +40,20 @@ questions = Question.create([
   {title: 'Why are there so many curly braces in Lisp?', body: '', author_id: '2'},
   ])
 
+answers = Answer.create([
+  {body: 'With aplomb!', author_id: 2, question_id: 1},
+  {body: 'COBOL is a compiled English-like computer programming language designed for business use! It is imperative, procedural and, since 2002, object-oriented! COBOL is primarily used in business, finance, and administrative systems for companies and governments!', author_id: 2, question_id: 2},
+  {body: 'Always prefer "print"', author_id: 3, question_id: 1}
+  ])
 
 question_topics = QuestionTopic.create([
   {topic_id: 1, question_id: 1},
   {topic_id: 18, question_id: 2},
   {topic_id: 5, question_id: 3},
   {topic_id: 4, question_id: 4}
+
+
+
 
 
 

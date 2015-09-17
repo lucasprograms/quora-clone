@@ -1,4 +1,4 @@
-QuoraClone.Views.QuestionAnswerItemView = Backbone.View.extend({
+QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   template: JST['questionANDanswer/questionAnswerItem'],
   tagName: 'li',
   className: 'feed question-answer-item',
@@ -40,7 +40,8 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.View.extend({
     e.preventDefault()
 
     var _answerCommentNewView = new QuoraClone.Views.AnswerCommentNewView({
-      model: new QuoraClone.Models.AnswerComment()
+      model: new QuoraClone.Models.AnswerComment(),
+      answer: this.answer
     });
 
     this.addSubview(".new-comment-to-answer", _answerCommentNewView);
