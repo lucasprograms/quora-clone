@@ -7,7 +7,9 @@ window.QuoraClone = {
     this.currentUser = new QuoraClone.Models.CurrentUser();
     this.currentUser.fetch();
 
-    new QuoraClone.Routers.Router();
+    this.header = new QuoraClone.Views.Header({ el: "#header" });
+    this.router = new QuoraClone.Routers.Router();
+    
     Backbone.history.start();
   }
 };

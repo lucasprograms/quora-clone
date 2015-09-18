@@ -1,0 +1,20 @@
+<h1>QuoraClone</h1>
+
+<% if(QuoraClone.currentUser.isSignedIn()) { %>
+
+  <p>
+    Signed in as:
+    <a href="#users/<%= QuoraClone.currentUser.id %>"><%= QuoraClone.currentUser.escape("first_name") %></a> |
+    <a href="#" id="sign-out-link">Sign Out</a>
+  </p>
+
+<% } else { %>
+
+  <p>
+    <a href="#users/new">Sign Up</a> |
+    <a href="#session/new">Sign In</a>
+  </p>
+
+<% } %>
+
+<hr>

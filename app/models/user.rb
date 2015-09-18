@@ -3,7 +3,8 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  validates :email, :password_digest, :session_token, presence: true
+  validates :email, :password_digest, :session_token, :first_name, :last_name, presence: true
+  validates :email, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
 
   has_many :questions, :class_name => 'Question', :foreign_key => :author_id

@@ -15,7 +15,9 @@
   <% end %>
 
   <% if flash[:errors] %>
-    <%= flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %>
+    <% end %>
   <% end %>
 
 </body>
