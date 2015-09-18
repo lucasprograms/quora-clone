@@ -2,6 +2,7 @@ class Api::AnswerCommentsController < ApplicationController
 
   def create
       @answer_comment = AnswerComment.new(answer_comment_params)
+      @answer_comment.author_id = current_user.id
 
       if @answer_comment.save
         render json: @answer_comment
