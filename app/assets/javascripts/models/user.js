@@ -11,7 +11,7 @@ QuoraClone.Models.User = Backbone.Model.extend({
   }
 });
 
-QuoraClone.Models.CurrentUser = BackboneAuthDemo.Models.User.extend({
+QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
 
   url: "/api/session",
 
