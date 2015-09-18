@@ -1,7 +1,9 @@
 QuoraClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.topics = QuoraClone.currentUser.topics();
+
     this.questions = new QuoraClone.Collections.Questions()
+
     this.$rootEl = options.$rootEl;
     this.collection = new QuoraClone.Collections.Users()
     this.collection.fetch();

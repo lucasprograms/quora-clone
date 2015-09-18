@@ -85,10 +85,6 @@ QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
     }
     return response;
 
-  },
-
-  toJSON: function() {
-    return {user: _.clone(this.attributes)}
   }
 
 });

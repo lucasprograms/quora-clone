@@ -23,7 +23,7 @@ class Api::QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
-    render json: @questions
+    render :index
   end
 
   def show

@@ -21,7 +21,7 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
     event.preventDefault();
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
-    debugger
+    
     QuoraClone.currentUser.signIn({
       email: formData.email,
       password: formData.password,

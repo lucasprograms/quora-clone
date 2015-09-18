@@ -19,7 +19,7 @@ class Api::AnswersController < ApplicationController
 
   def index
     @answers = Answer.all
-    render json: @answers
+    render :index
   end
 
   def show

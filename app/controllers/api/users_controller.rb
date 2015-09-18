@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-      @user = User.find(params[:id])
+      @user = User.includes(:subscribed_topics).find(params[:id])
       render :show
     end
 
