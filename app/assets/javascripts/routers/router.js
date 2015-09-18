@@ -1,15 +1,11 @@
 QuoraClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.topics = new QuoraClone.Collections.Topics();
+    this.topics = QuoraClone.currentUser.topics();
     this.questions = new QuoraClone.Collections.Questions()
     this.$rootEl = options.$rootEl;
     this.collection = new QuoraClone.Collections.Users()
     this.collection.fetch();
   },
-
-  // routes: {
-
-  // },
 
   routes: {
     '' : 'userFeed',
@@ -62,6 +58,66 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     this._swapView(signInView);
   },
 
+  userFeed: function () {
+    var callback = this.userFeed.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var _feed = new QuoraClone.Views.FeedShow({
+      collection: this.topics
+    });
+
+    this.topics.fetch();
+
+    this._swapView(_feed);
+  },
+
+  indexQuestions: function () {
+    var callback = this.indexQuestions.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var _index = new QuoraClone.Views.QuestionsIndex({
+      collection: this.questions
+    });
+
+    this.questions.fetch();
+
+    this._swapView(_index);
+  },
+
+  newQuestion: function () {
+    var callback = this.newQuestion.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var _questionNew = new QuoraClone.Views.QuestionNew({
+      model: new QuoraClone.Models.Question(),
+      collection: this.topics
+    });
+
+    this.topics.fetch();
+
+    this._swapView(_questionNew)
+  },
+
+  showQuestion: function (id) {
+    var callback = this.showQuestion.bind(this, id);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var question = this.questions.getOrFetch(id);
+
+    var _questionShow = new QuoraClone.Views.QuestionShow({
+      model: question
+    });
+
+    this._swapView(_questionShow);
+  },
+
+  _swapView: function (view) {
+    this._currentView && this._currentView.remove();
+    this._currentView = view;
+    this.$rootEl.html(view.$el);
+    view.render();
+  },
+
   _requireSignedIn: function(callback){
     if (!QuoraClone.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
@@ -84,54 +140,6 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
 
   _goHome: function(){
     Backbone.history.navigate("", { trigger: true });
-  },
-
-  userFeed: function () {
-    var _feed = new QuoraClone.Views.FeedShow({
-      collection: this.topics
-    });
-
-    this.topics.fetch();
-
-    this._swapView(_feed);
-  },
-
-  indexQuestions: function () {
-    var _index = new QuoraClone.Views.QuestionsIndex({
-      collection: this.questions
-    });
-
-    this.questions.fetch();
-
-    this._swapView(_index);
-  },
-
-  newQuestion: function () {
-    var _questionNew = new QuoraClone.Views.QuestionNew({
-      model: new QuoraClone.Models.Question(),
-      collection: this.topics
-    });
-
-    this.topics.fetch();
-
-    this._swapView(_questionNew)
-  },
-
-  showQuestion: function (id) {
-    var question = this.questions.getOrFetch(id);
-
-    var _questionShow = new QuoraClone.Views.QuestionShow({
-      model: question
-    });
-
-    this._swapView(_questionShow);
-  },
-
-  _swapView: function (view) {
-    this._currentView && this._currentView.remove();
-    this._currentView = view;
-    this.$rootEl.html(view.$el);
-    view.render();
   }
 
 })

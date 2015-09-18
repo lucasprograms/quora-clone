@@ -1,16 +1,6 @@
 QuoraClone.Views.FeedShow = Backbone.CompositeView.extend({
   template: JST['topics/feedShow'],
 
-  initialize: function () {
-
-    this.listenTo(
-      this.collection,
-      'sync',
-      this.render
-    );
-
-  },
-
   events: {
     'click .new-question' : 'newQuestion'
   },

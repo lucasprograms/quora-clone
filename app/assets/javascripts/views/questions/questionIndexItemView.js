@@ -3,13 +3,13 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
   tagName: 'li',
   className: 'question-index-item',
 
-  initialize: function () {
-    this.listenTo(
-      this.model,
-      'sync',
-      this.render
-    )
-  },
+  // initialize: function () {
+  //   this.listenTo(
+  //     this.model,
+  //     'sync',
+  //     this.render
+  //   )
+  // },
 
   events: {
     'click .answer-question' : 'newAnswer',

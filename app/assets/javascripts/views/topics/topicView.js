@@ -3,14 +3,6 @@ QuoraClone.Views.TopicView = Backbone.CompositeView.extend({
   tagName: 'ul',
   className: 'topic-list-item',
 
-  initialize: function () {
-    this.listenTo(
-      this.model,
-      'sync',
-      this.render
-    )
-  },
-
   addQuestionAnswerItem: function (question, answer) {
     var questionAnswerItemView = new QuoraClone.Views.QuestionAnswerItemView({
       question: question,
@@ -29,12 +21,8 @@ QuoraClone.Views.TopicView = Backbone.CompositeView.extend({
   },
 
   render: function () {
-
-
     this.model.questions().each(function(question) {
       this.addQuestion(question)
     }.bind(this))
-
-
   }
 })

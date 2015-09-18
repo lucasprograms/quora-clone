@@ -67,6 +67,28 @@ QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
       this.trigger("signOut");
       console.log("currentUser is signed out!", this);
     }
+  },
+
+  topics: function () {
+    if (!this._topics) {
+      this._topics = new QuoraClone.Collections.Topics([], {user: this})
+    }
+
+    return this._topics
+  },
+
+  parse: function (response) {
+
+    if (response.topics) {
+      this.topics().set(response.topics, { parse: true });
+      delete response.topics;
+    }
+    return response;
+
+  },
+
+  toJSON: function() {
+    return {user: _.clone(this.attributes)}
   }
 
 });
