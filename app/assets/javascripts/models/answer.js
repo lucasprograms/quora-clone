@@ -11,9 +11,9 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
   parse: function (response) {
 
-    if (response.answerComments) {
-      this.answerComments().set(response.answerComments);
-      delete response.answerComments;
+    if (response.answer_comments) {
+      this.answerComments().set(response.answer_comments);
+      delete response.answer_comments;
     }
 
     return response;

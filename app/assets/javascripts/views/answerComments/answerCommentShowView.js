@@ -1,9 +1,10 @@
-QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
-  template: JST['answers/answerShowView'],
+QuoraClone.Views.AnswerCommentShowView = Backbone.CompositeView.extend({
+  template: JST['answerComments/answerCommentShowView'],
   tagName: 'li',
   className: 'comment-to-answer',
 
   initialize: function () {
+
     this.listenTo(
       this.model,
       'sync',

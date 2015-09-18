@@ -32,11 +32,11 @@ QuoraClone.Models.Topic = Backbone.Model.extend({
       delete response.questions;
     }
     if (response.questionTopics) {
-      this.questionTopics().set(response.questionTopics);
+      this.questionTopics().set(response.questionTopics, { parse: true });
       delete response.questionTopics;
     }
     if (response.userTopics) {
-      this.userTopics().set(response.userTopics);
+      this.userTopics().set(response.userTopics, { parse: true });
       delete response.userTopics;
     }
     return response;
