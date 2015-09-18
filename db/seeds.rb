@@ -28,9 +28,9 @@ topics = Topic.create([
   ])
 
 users = User.create([
-  {email: 'lambda@aa.io', password: 'lambda'},
-  {email: 'lucasm@aa.io', password: 'lucasm'},
-  {email: 'quimbies@aa.io', password: 'quimbies'}
+  {email: 'lambda@aa.io', password: 'lambda', first_name: 'Charles', last_name: 'Biddensworth'},
+  {email: 'lucasm@aa.io', password: 'lucasm', first_name: 'Elizabeth', last_name: 'Reddington'},
+  {email: 'quimbies@aa.io', password: 'quimbies', first_name: 'Redford', last_name: 'Calvington'}
   ])
 
 questions = Question.create([
