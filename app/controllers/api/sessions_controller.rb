@@ -1,26 +1,28 @@
 class Api::SessionsController < ApplicationController
-  skip_before_action :require_login
 
-  def new
-    @user = User.new
-    render :new
+  def show
+    if current_user
+      render :show
+    else
+      render json: {}
+    end
   end
 
   def create
     user = User.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
-    )
+                  params[:user][:email],
+                  params[:user][:password])
 
-    if user
-      login!(user)
+    if user.nil?
+      head :unprocessable_entity
     else
-      @user = User.new
-      render :new
+      sign_in!(user)
+      render :show
     end
   end
 
   def destroy
-    logout!
+    sign_out!
+    render json: {}
   end
 end

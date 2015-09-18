@@ -3,21 +3,20 @@ QuoraClone.Collections.Users = Backbone.Collection.extend({
   model: QuoraClone.Models.User,
 
   getOrFetch: function(id) {
-    var collection = this;
-    var userTopic = collection.get(id)
+    var user = this.get(id),
+        users = this;
 
-    if (userTopic) {
-      userTopic.fetch();
-    } else {
-      userTopic = new collection.model({ id: id });
-      collection.add(userTopic);
-      userTopic.fetch({
-        error: function () {
-          collection.remove(userTopic)
+    if(!user) {
+      user = new this.model({ id: id });
+      user.fetch({
+        success: function() {
+          users.add(user);
         }
       });
+    } else {
+      user.fetch();
     }
 
-    return userTopic;
+    return user;
   }
 })

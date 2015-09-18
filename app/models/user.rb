@@ -14,14 +14,15 @@ class User < ActiveRecord::Base
   has_many :user_topics
   has_many :subscribed_topics, :through => :user_topics, :source => :topic
 
-  after_initialize :ensure_session_token
+  before_validation :ensure_session_token
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end
 
   def self.find_by_credentials(email, password)
-    user = User.find_by_email(email)
+    user = User.find_by(email: email)
+    return nil if user.nil?
     user && user.is_password?(password) ? user : nil
   end
 

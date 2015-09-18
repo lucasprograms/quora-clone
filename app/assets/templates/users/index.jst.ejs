@@ -1,0 +1,9 @@
+<h2>Everyone</h2>
+
+<ul>
+  <% users.each(function(user){ %>
+  <li>
+    <a href="#users/<%= user.id %>"><%= user.escape("first_name") %></a>
+  </li>
+  <% }) %>
+</ul>

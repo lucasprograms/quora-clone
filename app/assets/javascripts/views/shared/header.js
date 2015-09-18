@@ -12,6 +12,7 @@ QuoraClone.Views.Header = Backbone.View.extend({
   template: JST['shared/header'],
 
   render: function(){
+    
     var html = this.template({ currentUser: QuoraClone.currentUser });
     this.$el.html(html);
 

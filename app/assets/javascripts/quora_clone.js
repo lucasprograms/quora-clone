@@ -6,10 +6,10 @@ window.QuoraClone = {
   initialize: function() {
     this.currentUser = new QuoraClone.Models.CurrentUser();
     this.currentUser.fetch();
-
-    this.header = new QuoraClone.Views.Header({ el: "#header" });
-    this.router = new QuoraClone.Routers.Router();
     
+    this.header = new QuoraClone.Views.Header({ el: "#header" });
+    this.router = new QuoraClone.Routers.Router({ $rootEl: $("#main") });
+
     Backbone.history.start();
   }
 };
