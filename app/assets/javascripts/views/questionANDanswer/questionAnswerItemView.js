@@ -12,7 +12,8 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
 
   events: {
     'click .show-comments' : 'showComments',
-    'click .submit' : 'submit'
+    'click .submit' : 'submit',
+    'click .cancel' : 'cancel'
   },
 
   render: function () {
@@ -41,12 +42,12 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   newAnswerComment: function (e) {
     e.preventDefault()
 
-    var _answerCommentNewView = new QuoraClone.Views.AnswerCommentNewView({
+    this.answerCommentNewView = new QuoraClone.Views.AnswerCommentNewView({
       model: new QuoraClone.Models.AnswerComment(),
       answer: this.answer
     });
 
-    this.addSubview(".new-comment-to-answer", _answerCommentNewView);
+    this.addSubview(".new-comment-to-answer", this.answerCommentNewView);
   },
 
   submit: function (e) {
@@ -69,11 +70,15 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
         })
 
         this.addSubview(".comments-to-answer", _answerCommentShowView)
-        
+
       }.bind(this)
 
     });
 
     return this;
+  },
+
+  cancel: function () {
+    this.removeSubview(".new-comment-to-answer", this.answerCommentNewView);
   }
 })

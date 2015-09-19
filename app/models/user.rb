@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :questions, :class_name => 'Question', :foreign_key => :author_id
   has_many :answers, :class_name => 'Answer', :foreign_key => :author_id
+  has_many :answer_upvotes
+  has_many :answer_downvotes
   has_many :answer_comments, :class_name => 'AnswerComment', :foreign_key => :author_id
   has_many :question_comments, :class_name => 'QuestionComment', :foreign_key => :author_id
   has_many :user_topics

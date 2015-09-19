@@ -4,16 +4,17 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
   className: 'question-index-item',
 
   initialize: function () {
-    // this.listenTo(
-    //   this.model,
-    //   'add',
-    //   this.render
-    // )
+    this.listenTo(
+      this.model,
+      'sync',
+      this.render
+    )
   },
 
   events: {
     'click .answer-question' : 'newAnswer',
-    'click .submit' : 'submit'
+    'click .submit' : 'submit',
+    'click .cancel' : 'cancel'
   },
 
   render: function () {
@@ -26,14 +27,14 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
     this.answer = new QuoraClone.Models.Answer();
     var id = $(e.currentTarget).data('id')
 
-    var answerNewView = new QuoraClone.Views.AnswerNewView({
+    this.answerNewView = new QuoraClone.Views.AnswerNewView({
       model: this.answer,
       question: this.model
     });
 
     $("button.answer-question").css("display", "none");
 
-    this.addSubview(".new-answer-to-question", answerNewView);
+    this.addSubview(".new-answer-to-question", this.answerNewView);
   },
 
   submit: function (e) {
@@ -50,11 +51,20 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
       success: function () {
         var collection = new QuoraClone.Collections.Answers();
         collection.add(this.answer, { merge: true });
-        Backbone.history.navigate("#/questions/" + id, {trigger: true});
+
+        this.removeSubview(".new-answer-to-question", this.answerNewView);
+        $("button.answer-question").css("display", "block");
+
+        this.model.fetch();
       }.bind(this)
 
     });
 
     return this;
+  },
+
+  cancel: function (e) {
+    this.removeSubview(".new-answer-to-question", this.answerNewView);
+    $("button.answer-question").css("display", "block");
   }
 })

@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
     def index
-      @users = User.all
+      @users = User.includes(:subscribed_topics).all
       render :index
     end
 

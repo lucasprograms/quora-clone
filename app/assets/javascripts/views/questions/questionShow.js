@@ -11,7 +11,8 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
 
   events: {
     'click .answer-question' : 'newAnswer',
-    'click .submit' : 'submit'
+    'click .submit' : 'submit',
+    'click .cancel' : 'cancel'
   },
 
   render: function () {
@@ -42,6 +43,11 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
     $("button.answer-question").css("display", "none")
 
     this.addSubview(".new-answer-to-question", answerNewView)
+  },
+
+  cancel: function () {
+    debugger
+    // this.removeSubview(".new-answer-to-question", answerNewView)
   },
 
   submit: function () {

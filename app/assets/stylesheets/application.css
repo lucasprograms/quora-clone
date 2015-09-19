@@ -101,13 +101,15 @@ div {
   width: 1000px;
   margin: 0px auto;
   border: 2px solid black;
-  height: 50px
+  font-size: 14px;
+  font-weight: 500;
+  color: #999;
+  line-height: 50px;
 }
 
 .header {
   float: left;
   display: block;
-  padding: 15px 0px;
   margin: 0px 7.5px;
 }
 
@@ -115,7 +117,7 @@ div.header.header-search input {
   display: block;
   width: 370px;
   background: #ccc;
-  margin: 15px 7.5px;
+  margin: 0px 7.5px;
   padding: 0 2px;
   border: 1px solid #aaa;
 }
@@ -284,7 +286,7 @@ div.header.header-search input {
 
 div .header-ask-question {
   width: 120px;
-  margin-left: 15px;
+  margin: 15px;
 }
 
 .question-index-item {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918140421) do
+ActiveRecord::Schema.define(version: 20150919183402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,26 @@ ActiveRecord::Schema.define(version: 20150918140421) do
 
   add_index "answer_comments", ["answer_id"], name: "index_answer_comments_on_answer_id", using: :btree
   add_index "answer_comments", ["author_id"], name: "index_answer_comments_on_author_id", using: :btree
+
+  create_table "answer_downvotes", force: :cascade do |t|
+    t.integer  "answer_id",  null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "answer_downvotes", ["answer_id"], name: "index_answer_downvotes_on_answer_id", using: :btree
+  add_index "answer_downvotes", ["user_id"], name: "index_answer_downvotes_on_user_id", using: :btree
+
+  create_table "answer_upvotes", force: :cascade do |t|
+    t.integer  "answer_id",  null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "answer_upvotes", ["answer_id"], name: "index_answer_upvotes_on_answer_id", using: :btree
+  add_index "answer_upvotes", ["user_id"], name: "index_answer_upvotes_on_user_id", using: :btree
 
   create_table "answers", force: :cascade do |t|
     t.string   "body",        null: false
