@@ -6,3 +6,7 @@ json.answer_comments do
     answer_comment: answer_comment
   end
 end
+
+json.upvotes answer.answer_upvotes.size
+
+json.downvotes answer.answer_downvotes.size

@@ -9,10 +9,14 @@ class User < ActiveRecord::Base
 
   has_many :questions, :class_name => 'Question', :foreign_key => :author_id
   has_many :answers, :class_name => 'Answer', :foreign_key => :author_id
+
   has_many :answer_upvotes
+  has_many :upvoted_answers, :through => :answer_upvotes, :source => :answer
   has_many :answer_downvotes
+  has_many :downvoted_answers, :through => :answer_downvotes, :source => :answer
+
   has_many :answer_comments, :class_name => 'AnswerComment', :foreign_key => :author_id
-  has_many :question_comments, :class_name => 'QuestionComment', :foreign_key => :author_id
+
   has_many :user_topics
   has_many :subscribed_topics, :through => :user_topics, :source => :topic
 
@@ -46,6 +50,29 @@ class User < ActiveRecord::Base
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
+
+  def upvoted_answers_hash
+    zipped_upvotes = upvoted_answers.pluck(:answer_id).zip(upvoted_answers)
+    upvoted_answers_hash = {}
+
+    zipped_upvotes.each do |(id, upvote)|
+      upvoted_answers_hash[id] = upvote
+    end
+
+    upvoted_asnwers_hash
+  end
+
+  def downvoted_answers_hash
+    zipped_downvotes = downvoted_answers.pluck(:answer_id).zip(downvoted_answers)
+    downvoted_answers_hash = {}
+
+    zipped_downvotes.each do |(id, downvote)|
+      downvoted_answers_hash[id] = downvote
+    end
+
+    downvoted_asnwers_hash
+  end
+
 
   def subscribe(topic_id)
     topic = UserTopic.new({

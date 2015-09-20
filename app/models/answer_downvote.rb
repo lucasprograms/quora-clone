@@ -1,6 +1,7 @@
 class AnswerDownvote < ActiveRecord::Base
-  validates :answer_id, :user_id, presence: true
+  validates :answer, :user, presence: true
+  validates :user, uniqueness: { scope: :answer }
 
-  belongs_to :answer, inverse_of: :answer_downvotes
-  belongs_to :user, inverse_of: :answer_downvotes
+  belongs_to :answer
+  belongs_to :user
 end

@@ -81,13 +81,14 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.newQuestion.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
+    var all_topics = new QuoraClone.Collections.Topics()
+
     var _questionNew = new QuoraClone.Views.QuestionNew({
       model: new QuoraClone.Models.Question(),
-      collection: this.topics
+      collection: all_topics
     });
 
-
-    this.topics.fetch();
+    all_topics.fetch()
 
     this._swapView(_questionNew)
   },
