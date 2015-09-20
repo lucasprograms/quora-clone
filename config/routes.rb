@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :user_topics, except: [:new, :edit]
     resources :question_comments, except: [:new, :edit]
     resources :answer_comments, except: [:new, :edit]
+    resources :answer_upvotes, only: [:create, :destroy]
   end
 
 end

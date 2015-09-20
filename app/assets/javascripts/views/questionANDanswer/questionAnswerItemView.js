@@ -17,10 +17,18 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    
     this.$el.html(this.template({
       answer: this.answer,
       question: this.question
     }))
+
+    var upvoteWidget = new QuoraClone.Views.AnswerUpvoteWidget({
+      model: this.answer
+    })
+
+    this.addSubview(".answer-form-footer", upvoteWidget, true)
+
     return this;
   },
 

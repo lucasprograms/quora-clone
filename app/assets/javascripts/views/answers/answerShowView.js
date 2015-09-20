@@ -4,11 +4,8 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
   className: 'answer-to-question',
 
   initialize: function () {
-    this.listenTo(
-      this.model,
-      'sync',
-      this.render
-    )
+    this.listenTo(this.model, 'sync', this.render)
+
   },
 
   render: function () {

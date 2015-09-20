@@ -7,6 +7,6 @@ json.answer_comments do
   end
 end
 
-json.upvotes answer.answer_upvotes.size
+json.num_upvotes answer.answer_upvotes.size
 
-json.downvotes answer.answer_downvotes.size
+json.num_downvotes answer.answer_downvotes.size

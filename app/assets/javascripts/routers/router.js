@@ -1,6 +1,5 @@
 QuoraClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-    this.topics = QuoraClone.currentUser.topics();
 
     this.questions = new QuoraClone.Collections.Questions()
 
@@ -45,8 +44,10 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedOut(callback)) { return; }
 
     var signInView = new QuoraClone.Views.SignIn({
-      callback: callback
+      callback: callback,
+      collection: this.collection
     });
+
 
     this._swapView(signInView);
   },
@@ -54,9 +55,9 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   userFeed: function () {
     var callback = this.userFeed.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-
+    
     var _feed = new QuoraClone.Views.FeedShow({
-      collection: this.topics
+      collection: QuoraClone.currentUser.topics()
     });
 
 
@@ -71,7 +72,6 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
       collection: this.questions
     });
 
-    this.collection.fetch();
     this.questions.fetch();
 
     this._swapView(_index);

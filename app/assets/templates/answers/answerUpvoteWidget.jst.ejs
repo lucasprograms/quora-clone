@@ -1,0 +1,7 @@
+<button class="upvote-button primary-button action-bar" data-id=<%= answer.get('id') %>>
+  <% if (upvote.isNew()) { %>
+    Upvote | <%= answer.get('num_upvotes') %>
+  <% } else { %>
+    Upvoted
+  <% } %>
+</button>

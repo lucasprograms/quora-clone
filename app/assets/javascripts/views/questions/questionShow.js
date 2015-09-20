@@ -46,8 +46,7 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   cancel: function () {
-    debugger
-    // this.removeSubview(".new-answer-to-question", answerNewView)
+    this.removeSubview(".new-answer-to-question", answerNewView)
   },
 
   submit: function () {

@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
       upvoted_answers_hash[id] = upvote
     end
 
-    upvoted_asnwers_hash
+    upvoted_answers_hash
   end
 
   def downvoted_answers_hash
@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
       downvoted_answers_hash[id] = downvote
     end
 
-    downvoted_asnwers_hash
+    downvoted_answers_hash
   end
 
 

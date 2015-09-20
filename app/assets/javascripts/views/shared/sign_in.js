@@ -21,7 +21,7 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
     event.preventDefault();
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON().user;
-    
+
     QuoraClone.currentUser.signIn({
       email: formData.email,
       password: formData.password,
@@ -35,6 +35,7 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
+      
       Backbone.history.navigate("", { trigger: true });
     }
   }

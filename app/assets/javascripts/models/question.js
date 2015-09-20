@@ -23,10 +23,12 @@ QuoraClone.Models.Question = Backbone.Model.extend({
       this.answers().set(response.answers, { parse: true });
       delete response.answers;
     }
+
     if (response.topics) {
       this.topics().set(response.topics, { parse: true });
       delete response.topics;
     }
+    
     return response;
   },
 
