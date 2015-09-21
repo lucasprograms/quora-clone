@@ -1,33 +1,24 @@
 <% if(QuoraClone.currentUser.isSignedIn()) { %>
 
-  <nav class="header-nav group">
-    <div class="header header-logo">
+  <div class="header-nav group">
+
       <a href="#">LOGO</a>
-    </div>
 
-    <div class="header header-search">
       <input type="text" placeholder="Search">
-    </div>
 
-    <div class="header header-index">
       <a href="#">Home</a>
-    </div>
 
-    <div class="header header-write">
       <a href="#questions">Write</a>
-    </div>
 
-    <div class="header header-profile">
-      <%= QuoraClone.currentUser.escape('first_name') %>
-    </div>
+      <a href="#"><%= QuoraClone.currentUser.escape('first_name') %></a>
 
-    <div class="header header-ask-question">
       <a href="#questions/new">ASK QUESTION</a>
-    </div>
 
-  </nav>
+      <a href="#" id="sign-out-link">Sign Out</a>
 
-    <a href="#" id="sign-out-link">Sign Out</a>
+  </ul>
+
+
 
 <% } else { %>
 
@@ -37,5 +28,3 @@
   </p>
 
 <% } %>
-
-<hr>

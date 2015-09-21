@@ -16,10 +16,23 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     'questions' : 'indexQuestions',
     'questions/new' : 'newQuestion',
     'questions/:id' : 'showQuestion',
-    "users/new": "new",
+    "users/new": "newSesh",
     "users/:id": "show",
-    "session/new": "signIn",
-    "session_user/new" : "newSesh"
+    "session/new" : "newSesh",
+    "topics/new" : "topicSelect"
+  },
+
+  topicSelect: function () {
+    var callback = this.topicSelect.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var selectTopicView = new QuoraClone.Views.TopicSelect({
+      collection: this.all_topics
+    });
+
+    this.all_topics.fetch();
+
+    this.swapView(selectTopicView)
   },
 
   newSesh: function () {

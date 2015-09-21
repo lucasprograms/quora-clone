@@ -2,38 +2,39 @@
 
 <form>
 
+<div class="form-row">
   <label>
     First Name
     <input type="text" name="user[first_name]"
            value="<%= user.escape("first_name") %>">
   </label>
+</div>
 
-  <br>
-
+<div class="form-row">
   <label>
     Last Name
     <input type="text" name="user[last_name]"
            value="<%= user.escape("last_name") %>">
   </label>
+</div>
 
-  <br>
-
+<div class="form-row">
   <label>
     Email
     <input type="email" name="user[email]"
            value="<%= user.escape("email") %>">
   </label>
+</div>
 
-  <br>
-
+<div class="form-row">
   <label>
     Password
     <input type="password" name="user[password]"
            value="<%= user.escape("password") %>">
   </label>
+</div>
 
-  <br>
 
-  <button>Create Account</button>
+  <button class="primary-button">Create Account</button>
 
 </form>

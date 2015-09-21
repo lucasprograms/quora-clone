@@ -101,10 +101,22 @@ div {
   width: 1000px;
   margin: 0px auto;
   border: 2px solid black;
+  padding: 1px;
   font-size: 14px;
   font-weight: 500;
   color: #999;
-  line-height: 50px;
+}
+
+.header-nav > * {
+  float: left;
+}
+
+.header-nav a {
+  padding: 20px 20px;
+}
+
+.header-nav a:hover {
+  background: #ccc;
 }
 
 .header {
@@ -113,34 +125,6 @@ div {
   margin: 0px 7.5px;
 }
 
-div.header.header-search input {
-  display: block;
-  width: 370px;
-  background: #ccc;
-  margin: 0px 7.5px;
-  padding: 0 2px;
-  border: 1px solid #aaa;
-}
-
-.header-search {
-  width: 370px;
-}
-
-.header-notifications {
-  width: 115px;
-}
-
-.header-write {
-  width: 75px;
-}
-
-.header-index {
-  width: 75px;
-}
-
-.header-profile {
-  width: 85px;
-}
 
 .form-header {
   font-size: 15px;
@@ -232,7 +216,7 @@ div.header.header-search input {
   cursor: pointer;
   background: #3e78ad;
   color: #fff;
-  border: 0;
+  border: 1px solid #3e78ad;
   float: left;
   box-shadow: 0 1px 1px 0 rgba(200,200,200,0.6);
 }
@@ -291,4 +275,46 @@ div .header-ask-question {
 
 .question-index-item {
   padding-top: 8px;
+}
+
+.sign-in-up-wrapper {
+  width: 600px;
+  padding: 20px 20px;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+
+.sign-up {
+  width: 250px;
+  padding: 0 20px 0 0;
+  float: left;
+  border-right: 1px solid #000;
+}
+
+.sign-in {
+  width: 250px;
+  padding: 0 0 0 20px;
+  float: left;
+}
+
+.sign-in-up-wrapper input {
+  margin: 5px 0;
+  padding: 3px;
+  height: 15px;
+  width: 150px;
+  box-sizing: border-box;
+  min-height: 27px;
+  background: #fff;
+  outline: 0;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(200,200,200,0.3);
+}
+
+.sign-in-up-wrapper input:focus {
+  border: 1px solid #3a66ad;
+}
+
+.sign-in-up-wrapper button {
+  float: right;
 }

@@ -47,7 +47,6 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     destroyUpvote: function (e) {
       this.upvote().destroy({
         success: function (model) {
-          debugger
           model.unset("id");
           this.updateUpvoteCount(-1);
         }.bind(this)
