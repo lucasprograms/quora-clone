@@ -2,6 +2,6 @@
   <% if (upvote.isNew()) { %>
     Upvote | <%= answer.get('num_upvotes') %>
   <% } else { %>
-    Upvoted
+    Upvoted | <%= answer.get('num_upvotes') %>
   <% } %>
 </button>

@@ -1,8 +1,12 @@
 QuoraClone.Views.FeedShow = Backbone.CompositeView.extend({
   template: JST['topics/feedShow'],
 
-  initialize: function (options) {
-
+  initialize: function () {
+    this.listenTo(
+      QuoraClone.currentUser,
+      'sync',
+      this.render
+    )
   },
 
   events: {

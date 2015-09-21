@@ -1,9 +1,12 @@
 QuoraClone.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
+    this.user_topics = QuoraClone.currentUser.topics();
+    this.all_topics =  new QuoraClone.Collections.Topics()
 
     this.questions = new QuoraClone.Collections.Questions()
 
     this.$rootEl = options.$rootEl;
+
     this.collection = new QuoraClone.Collections.Users()
     this.collection.fetch();
   },
@@ -37,6 +40,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var showView = new QuoraClone.Views.UsersShow({
       model: model
     });
+
     this._swapView(showView);
   },
 
@@ -48,18 +52,18 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
       collection: this.collection
     });
 
-
     this._swapView(signInView);
   },
 
   userFeed: function () {
     var callback = this.userFeed.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    
+
     var _feed = new QuoraClone.Views.FeedShow({
-      collection: QuoraClone.currentUser.topics()
+      collection: this.user_topics
     });
 
+    QuoraClone.currentUser.fetch();
 
     this._swapView(_feed);
   },
@@ -81,14 +85,12 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.newQuestion.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var all_topics = new QuoraClone.Collections.Topics()
-
     var _questionNew = new QuoraClone.Views.QuestionNew({
       model: new QuoraClone.Models.Question(),
-      collection: all_topics
+      collection: this.all_topics
     });
 
-    all_topics.fetch()
+    this.all_topics.fetch()
 
     this._swapView(_questionNew)
   },

@@ -23,16 +23,16 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     },
 
     upvote: function () {
-      debugger
+
       if (!this._upvote) {
         this._upvote = new QuoraClone.Models.AnswerUpvote();
       }
-      debugger
+
       return this._upvote;
     },
 
     createUpvote: function (e) {
-      debugger
+
       this.upvote().set({
         answer_id: $(e.currentTarget).data('id')
       });
@@ -47,6 +47,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     destroyUpvote: function (e) {
       this.upvote().destroy({
         success: function (model) {
+          debugger
           model.unset("id");
           this.updateUpvoteCount(-1);
         }.bind(this)
