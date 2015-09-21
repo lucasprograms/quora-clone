@@ -18,7 +18,20 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     'questions/:id' : 'showQuestion',
     "users/new": "new",
     "users/:id": "show",
-    "session/new": "signIn"
+    "session/new": "signIn",
+    "session_user/new" : "newSesh"
+  },
+
+  newSesh: function () {
+    if (!this._requireSignedOut()) { return; }
+
+    var model = new this.collection.model()
+    var newSeshView = new QuoraClone.Views.NewSeshForm({
+      collection: this.collection,
+      model: model
+    });
+
+    this._swapView(newSeshView)
   },
 
   new: function(){

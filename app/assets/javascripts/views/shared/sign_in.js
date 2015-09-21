@@ -35,7 +35,7 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
-      
+
       Backbone.history.navigate("", { trigger: true });
     }
   }
