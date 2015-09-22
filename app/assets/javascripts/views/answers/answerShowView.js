@@ -26,7 +26,7 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
     this.model.answerComments().each(function(answerComment) {
       this.addAnswerComment(answerComment);
     }.bind(this));
-    
+
     return this;
   },
 
@@ -84,7 +84,7 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
         });
 
         this.addSubview(".comments-to-answer", _answerCommentShowView);
-
+        $(".answer-form").empty();
       }.bind(this)
 
     });

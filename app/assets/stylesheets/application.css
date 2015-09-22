@@ -387,12 +387,35 @@ span.author-name {
 
 .comments-to-answer {
   display: none;
+  background: #f6f6f6;
+  padding: 10px;
 }
 
-.comment-to-answer {
-
+li.comment-to-answer {
+  display: block;
+  width: 420px;
+  padding: 8px 20px;
+  margin: auto;
 }
 
 .new-comment-to-answer {
-  
+  display: block;
+  position: relative;
+  margin: 8px 8px 8px 0;
+  width: 460px;
+  margin: 20px auto;
+}
+
+.new-comment-to-answer textarea {
+  min-height: 27px;
+  border: 1px solid #e2e2e2;
+  background: #fff;
+  line-height: 1.4;
+  font-size: 13px;
+  float: left;
+  width: 375px;
+}
+
+.new-comment-to-answer button {
+  float: left;
 }

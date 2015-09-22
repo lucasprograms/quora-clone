@@ -1,9 +1,4 @@
-<div class="inline-answer">
 
   <textarea class="answer-form" id="body" name="title" placeholder="Add a Comment"><%= answerComment.escape('body') %></textarea>
 
-  <div class="answer-form-footer group">
-      <button class='primary-button form-submit submit-comment' data-id="<%= answer.escape('id') %>">Comment</button>
-  </div>
-
-</div>
+  <button class='primary-button form-submit submit-comment' data-id="<%= answer.escape('id') %>">Comment</button>
