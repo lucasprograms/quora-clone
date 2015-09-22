@@ -4,7 +4,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
     answerComments: function () {
       if (!this._answerComments) {
-        this._answerComments = new; QuoraClone.Collections.AnswerComments([], {answerComments: this})
+        this._answerComments = new QuoraClone.Collections.AnswerComments([], {answerComments: this});
       }
 
       return this._answerComments;
@@ -12,7 +12,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
     answerUpvotes: function () {
       if (!this._answerUpvotes) {
-        this._answerUpvotes = new QuoraClone.Collections.AnswerUpvotes([], {answerUpvotes: this})
+        this._answerUpvotes = new QuoraClone.Collections.AnswerUpvotes([], {answerUpvotes: this});
       }
 
       return this._answerUpvotes;
