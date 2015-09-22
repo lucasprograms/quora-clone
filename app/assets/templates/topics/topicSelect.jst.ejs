@@ -1,0 +1,17 @@
+
+
+
+<div class="topic-select-wrapper group">
+  <h2 class="page-header"> Follow Topics </h2>
+  <% topics.each( function (topic) { %>
+    <div class="topic-wrapper">
+    <input
+      class="topic-option"
+      type="checkbox"
+      value="<%= topic.escape('id') %>">
+      <%= topic.get('subject') %>
+    </div>
+  <% }) %>
+</div>
+
+<button class="primary-button submit-topics">SUBMIT</button>

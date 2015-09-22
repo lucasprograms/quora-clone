@@ -1,4 +1,4 @@
-QuoraClone.Views.Header = Backbone.View.extend({
+QuoraClone.Views.Header = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.listenTo(QuoraClone.currentUser, "signIn signOut", this.render);
@@ -6,13 +6,15 @@ QuoraClone.Views.Header = Backbone.View.extend({
   },
 
   events: {
-    "click #sign-out-link": "signOut"
+    "click #sign-out-link": "signOut",
+    "click button" : "newQuestion",
+    // "click .zone6kingz" : "userMenu"
   },
 
   template: JST['shared/header'],
 
   render: function(){
-    
+
     var html = this.template({ currentUser: QuoraClone.currentUser });
     this.$el.html(html);
 
@@ -26,6 +28,24 @@ QuoraClone.Views.Header = Backbone.View.extend({
         Backbone.history.navigate("session/new", { trigger: true });
       }
     });
+  },
+
+  newQuestion: function () {
+    Backbone.history.navigate("#questions/new", {trigger: true})
+  },
+
+  userMenu: function () {
+    this.userMenuView = new QuoraClone.Views.UserMenu({
+      model: QuoraClone.currentUser
+    });
+
+    this.addSubview(".menu-zone", this.userMenuView)
+  },
+
+  closeMenu: function () {
+    this.removeSubview(".menu-zone", this.userMenuView)
   }
+
+
 
 });

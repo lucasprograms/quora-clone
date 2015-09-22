@@ -10,6 +10,14 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
       return this._answerComments
     },
 
+    answerUpvotes: function () {
+      if (!this._answerUpvotes) {
+        this._answerUpvotes = new QuoraClone.Collections.AnswerUpvotes([], {answerUpvotes: this})
+      }
+
+      return this._answerUpvotes
+    },
+
     parse: function (response) {
 
       if (response.answer_comments) {
@@ -17,7 +25,10 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
         delete response.answer_comments;
       }
 
-      this.parseUpvote(response);
+      if (response.answer_upvotes) {
+        this.answerUpvotes().set(response.answer_upvotes);
+        delete response.answer_upvotes;
+      }
 
       return response;
     },
@@ -33,28 +44,33 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
     createUpvote: function (e) {
 
-      this.upvote().set({
-        answer_id: $(e.currentTarget).data('id')
-      });
+      var model = this;
+      var credentials = {
+        "answer_upvote[answer_id]": $(e.currentTarget).data('id'),
+        "answer_upvote[user_id]": QuoraClone.currentUser.get('id')
+      };
 
-      this.upvote().save({}, {
-        success: function () {
-          this.updateUpvoteCount(1);
-        }.bind(this)
-      });
+      $.ajax({
+        url: "/api/answer_upvotes",
+        type: "POST",
+        data: credentials,
+        dataType: "json",
+        success: function(data){
+          model.set(data);
+        }
+      })
+
     },
 
     destroyUpvote: function (e) {
-      this.upvote().destroy({
-        success: function (model) {
-          model.unset("id");
-          this.updateUpvoteCount(-1);
-        }.bind(this)
-      });
+      upvote = this.answerUpvotes().findWhere({user_id: QuoraClone.currentUser.get('id')})
+
+      upvote.destroy();
     },
 
     toggleUpvote: function (e) {
-      if (this.upvote().isNew()) {
+
+      if (!this.get('has_upvoted')) {
         this.createUpvote(e);
       } else {
         this.destroyUpvote(e);
@@ -62,7 +78,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     },
 
     updateUpvoteCount: function (delta) {
-      this.set("upvotes", this.get("upvotes") + delta);
+      this.set("num_upvotes", this.get("num_upvotes") + delta);
     },
 
     parseUpvote: function (response) {

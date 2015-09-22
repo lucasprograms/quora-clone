@@ -32,14 +32,15 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
 
     this.all_topics.fetch();
 
-    this.swapView(selectTopicView)
+    this._swapView(selectTopicView)
   },
 
-  newSesh: function () {
+  newSesh: function (callback) {
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model()
     var newSeshView = new QuoraClone.Views.NewSeshForm({
+      callback: callback,
       collection: this.collection,
       model: model
     });
@@ -144,7 +145,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   _requireSignedIn: function(callback){
     if (!QuoraClone.currentUser.isSignedIn()) {
       callback = callback || this._goHome.bind(this);
-      this.signIn(callback);
+      this.newSesh(callback);
       return false;
     }
 

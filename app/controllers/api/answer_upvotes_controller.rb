@@ -1,7 +1,7 @@
 class Api::AnswerUpvotesController < ApplicationController
 
   def create
-    
+
     @upvote = current_user.answer_upvotes.new(answer_upvote_params)
     @upvote.user_id = current_user.id
     if @upvote.save
@@ -9,6 +9,16 @@ class Api::AnswerUpvotesController < ApplicationController
     else
       render json: @upvote.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @upvote = AnswerUpvote.find(params[:id])
+    render json: @upvote
+  end
+
+  def index
+    @upvotes = AnswerUpvote.all
+    render json: @upvotes
   end
 
   def destroy

@@ -85,6 +85,11 @@ div {
   display: block;
 }
 
+#main {
+  position: relative;
+  top: 52px;
+}
+
 .backdrop {
   display: block;
   clear: both;
@@ -97,34 +102,52 @@ div {
   border-bottom: 1px solid #e2e2e2;
 }
 
+.header {
+  position: fixed;
+  border-top: 2px solid #b92b27;
+  border-bottom: 1px solid #ccc;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+}
+
 .header-nav {
-  width: 1000px;
+  position: relative;
+  width: 868px;
   margin: 0px auto;
-  border: 2px solid black;
-  padding: 1px;
   font-size: 14px;
   font-weight: 500;
   color: #999;
+  background: #fff;
+  opacity: 100%;
 }
 
 .header-nav > * {
+  position: relative;
   float: left;
+  display: block;
+  padding: 14px 20px 15px 20px;
 }
 
-.header-nav a {
-  padding: 20px 20px;
+.header-nav > a:first-child {
+  font-weight: 400;
+  color: #f00;
+  padding: 6px 20px 9px 20px;
+  font-size: 24px;
+  font-family: "Le Monde Courrier", baskerville, serif;
+}
+
+.primary-button.header-button {
+  margin: 10px 20px;
+  font-size: 13px;
+  font-weight: 500px;
 }
 
 .header-nav a:hover {
-  background: #ccc;
+  background: #eee;
 }
-
-.header {
-  float: left;
-  display: block;
-  margin: 0px 7.5px;
-}
-
 
 .form-header {
   font-size: 15px;
@@ -200,7 +223,7 @@ div {
   padding: 5px 10px 5px 0px;
 }
 
-.answer-form-footer > button {
+.answer-form-footer * {
   margin-right: 10px;
 }
 
@@ -268,11 +291,6 @@ div {
   text-decoration: underline;
 }
 
-div .header-ask-question {
-  width: 120px;
-  margin: 15px;
-}
-
 .question-index-item {
   padding-top: 8px;
 }
@@ -317,4 +335,28 @@ div .header-ask-question {
 
 .sign-in-up-wrapper button {
   float: right;
+}
+
+.topic-select-wrapper {
+  width: 540px;
+  margin: 30px auto;
+}
+
+.topic-wrapper {
+  width: 150px;
+  display: block;
+  float: left;
+  padding: 5px 10px;
+}
+
+.topic-option {
+
+}
+
+.page-header {
+  font-size: 24px;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  display: block;
+  padding: 0 0 20px 0;
+  margin: 0 auto;
 }

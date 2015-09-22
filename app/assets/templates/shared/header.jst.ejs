@@ -1,23 +1,25 @@
 <% if(QuoraClone.currentUser.isSignedIn()) { %>
 
+<div class="header">
   <div class="header-nav group">
 
-      <a href="#">LOGO</a>
+      <a href="#">Quora</a>
 
-      <input type="text" placeholder="Search">
+      <a href="#"> future home of search bar </a>
 
       <a href="#">Home</a>
 
       <a href="#questions">Write</a>
 
-      <a href="#"><%= QuoraClone.currentUser.escape('first_name') %></a>
+      <div class="zone6kingz"><%= QuoraClone.currentUser.escape('first_name') %></div>
 
-      <a href="#questions/new">ASK QUESTION</a>
+
+      <button class="primary-button header-button">Ask Question</button>
 
       <a href="#" id="sign-out-link">Sign Out</a>
 
-  </ul>
-
+  </div>
+</div>
 
 
 <% } else { %>

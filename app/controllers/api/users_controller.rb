@@ -20,9 +20,21 @@ class Api::UsersController < ApplicationController
       end
     end
 
+    def update
+      @user = User.find(params[:id])
+
+      @user.update(user_params)
+
+      if @user.save
+        render :show
+      else
+        render json: @user.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
     protected
 
     def user_params
-      self.params.require(:user).permit(:first_name, :last_name, :email, :password)
+      self.params.require(:user).permit(:first_name, :last_name, :email, :password, subscribed_topic_ids: [])
     end
 end

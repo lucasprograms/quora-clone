@@ -5,7 +5,7 @@
     <a href="#questions/<%= question.escape('id')%>"><%= question.escape('title') %></a>
   </div>
   <div class="feed answer-author bio">
-    ANSWER AUTHOR BIO HERE
+    question.author
   </div>
   <div class="feed answer-body">
     <%= answer.escape('body') %>
@@ -18,10 +18,10 @@
   </div>
   <div class="answer-form-footer group">
 
-    <button class="tertiary-button"
-            data-id="<%= question.escape('id')%>">
+    <!-- <button class="tertiary-button"
+            data-id="question.escape('id') needs JS wrapper">
             Downvote
-    </button>
+    </button> -->
     <button class="tertiary-button show-comments"
             data-id="<%= question.escape('id')%>">
             Comments
