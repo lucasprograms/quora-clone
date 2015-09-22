@@ -1,7 +1,7 @@
-<button class="upvote-button primary-button action-bar" data-id=<%= answer.get('id') %>>
-  <% if (!answer.get('has_upvoted')) { %>
-    Upvote | <%= answer.get('num_upvotes') %>
+<button class="upvote-button primary-button action-bar" data-id=<%= answer.escape('id') %>>
+  <% if (!answer.escape('has_upvoted')) { %>
+    Upvote | <%= answer.escape('num_upvotes') %>
   <% } else { %>
-    Upvoted | <%= answer.get('num_upvotes') %>
+    Upvoted | <%= answer.escape('num_upvotes') %>
   <% } %>
 </button>

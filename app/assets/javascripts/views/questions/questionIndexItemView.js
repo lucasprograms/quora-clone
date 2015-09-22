@@ -35,7 +35,7 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
       question: this.model
     });
 
-    $("button.answer-question").css("display", "none");
+    this.$("button.answer-question").css("display", "none");
 
     this.addSubview(".new-answer-to-question", this.answerNewView);
   },
@@ -56,7 +56,7 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
         collection.add(this.answer, { merge: true });
 
         this.removeSubview(".new-answer-to-question", this.answerNewView);
-        $("button.answer-question").css("display", "block");
+        this.$("button.answer-question").css("display", "block");
 
         this.model.fetch();
       }.bind(this)
@@ -68,6 +68,6 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
 
   cancel: function (e) {
     this.removeSubview(".new-answer-to-question", this.answerNewView);
-    $("button.answer-question").css("display", "block");
+    this.$("button.answer-question").css("display", "block");
   }
 });
