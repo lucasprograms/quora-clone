@@ -1,6 +1,6 @@
-[ ] Refactor jBuilder views into partials
-[ ] Convert views to subviews
-[ ] Create topicsOfCurrentUser function
-[ ] Questions Index
+[x] Refactor jBuilder views into partials
+[x] Convert views to subviews
+[x] Create topicsOfCurrentUser function
+[x] Questions Index
 
 persisted? toggle, else new attribute

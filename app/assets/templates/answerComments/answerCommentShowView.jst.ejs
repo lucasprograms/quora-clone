@@ -1,1 +1,7 @@
-<%= answerComment.escape('body') %>
+<div class="comment-text">
+  <%= answerComment.escape('body') %>
+</div>
+
+<% if (answerComment.escape('author_id') === QuoraClone.currentUser.escape('id')) { %>
+  <button class="delete-comment">x</button>
+<% } %>

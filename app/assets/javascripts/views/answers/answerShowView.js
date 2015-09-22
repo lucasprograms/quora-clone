@@ -5,6 +5,7 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model.answerComments(), 'add remove', this.refreshFooter);
   },
 
   events: {
@@ -12,7 +13,8 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
     'click .submit-comment' : 'submit'
   },
 
-  render: function () {
+  render: function (options) {
+
     this.$el.html(this.template({
       answer: this.model,
       author: this.model.author()
@@ -22,7 +24,16 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
 
     this.addComments();
 
+    if (options) {
+      this.toggleComments();
+    }
+
     return this;
+  },
+
+  refreshFooter: function () {
+    this.render();
+    this.toggleComments();
   },
 
   addUpvoteWidget: function () {
@@ -68,16 +79,9 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
 
     this.answerComment.save({}, {
       success: function () {
-        var collection = new QuoraClone.Collections.AnswerComments();
-        collection.add(this.answerComment, { merge: true });
-        var _answerCommentShowView = new QuoraClone.Views.AnswerCommentShowView({
-          model: this.answerComment
-        });
-
-        this.addSubview(".comments-to-answer", _answerCommentShowView);
-        $(".new-comment-to-answer").empty();
+        this.model.answerComments().add(this.answerComment, { merge: true });
+        $("textarea#body").val("");
       }.bind(this)
-
     });
 
     return this;
@@ -93,6 +97,3 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
     }
   }
 });
-
-//AnswerCommentShowView
-//AnswerCommentNewView

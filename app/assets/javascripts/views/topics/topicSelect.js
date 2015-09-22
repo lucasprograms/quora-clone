@@ -7,10 +7,15 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
       'sync',
       this.render
     );
+    this.coverBackground();
   },
 
   events : {
     'click .submit-topics' : 'submit'
+  },
+
+  coverBackground: function() {
+    $("html").prepend("<div class='cover-background'></div>");
   },
 
   render: function () {
@@ -19,20 +24,35 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
   },
 
   submit: function () {
+    $(".error-message").empty();
+
     var topic_ids = [];
     $("input:checked").each(function () {
       topic_ids.push(this.value);
     });
 
-    $.ajax({
-      url: "/api/users/" + QuoraClone.currentUser.get('id'),
-      type: "PATCH",
-      data: {"user[subscribed_topic_ids]" : topic_ids},
-      dataType: "json",
-      success: function(data) {
-        QuoraClone.currentUser.set(data);
-        Backbone.history.navigate("", {trigger: true});
-      }
-    });
+    if (topic_ids.length < 3) {
+
+      this._errorMess = new QuoraClone.Views.ErrorMessage({
+        errorText: "Please Select at Least 3 Topics!"
+      });
+
+      this.addSubview(".error-message", this._errorMess);
+      $(".error-message").css('font-style', 'italic');
+    } else {
+      $.ajax({
+        url: "/api/users/" + QuoraClone.currentUser.get('id'),
+        type: "PATCH",
+        data: {"user[subscribed_topic_ids]" : topic_ids},
+        dataType: "json",
+        success: function(data) {
+          QuoraClone.currentUser.set(data);
+
+          Backbone.history.navigate("", {trigger: true});
+        }
+      });
+
+      $("html div.cover-background").remove();
+    }
   }
 });

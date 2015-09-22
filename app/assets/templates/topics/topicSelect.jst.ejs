@@ -3,6 +3,7 @@
 
 <div class="topic-select-wrapper group">
   <h2 class="page-header"> Follow Topics </h2>
+  <h4 class="error-message page-subheader"> (Select at Least 3) </h4>
   <% topics.each( function (topic) { %>
     <div class="topic-wrapper">
     <input
@@ -12,6 +13,6 @@
       <%= topic.escape('subject') %>
     </div>
   <% }) %>
-</div>
 
-<button class="primary-button submit-topics">SUBMIT</button>
+  <button class="primary-button submit-topics">SUBMIT</button>
+</div>
