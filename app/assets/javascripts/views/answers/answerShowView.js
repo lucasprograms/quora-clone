@@ -13,7 +13,7 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
     'click .submit-comment' : 'submit'
   },
 
-  render: function (options) {
+  render: function () {
 
     this.$el.html(this.template({
       answer: this.model,
@@ -23,10 +23,6 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
     this.addUpvoteWidget();
 
     this.addComments();
-
-    if (options) {
-      this.toggleComments();
-    }
 
     return this;
   },

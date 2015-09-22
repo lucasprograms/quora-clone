@@ -1,5 +1,5 @@
 <button class="upvote-button primary-button action-bar" data-id=<%= answer.escape('id') %>>
-  <% if (!answer.escape('has_upvoted')) { %>
+  <% if (answer.escape('has_upvoted') === "false") { %>
     Upvote | <%= answer.escape('num_upvotes') %>
   <% } else { %>
     Upvoted | <%= answer.escape('num_upvotes') %>
