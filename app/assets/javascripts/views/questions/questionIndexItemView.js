@@ -38,7 +38,7 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
   },
 
   submit: function (e) {
-    e.preventDefault();;
+    e.preventDefault();
     var id = $(e.currentTarget).data('id');
 
     this.answer.set({
