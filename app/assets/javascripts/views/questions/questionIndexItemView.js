@@ -18,7 +18,10 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ question: this.model }));
+    this.$el.html(this.template({
+      topic: this.model.topics().first(),
+      question: this.model
+    }));
     return this;
   },
 

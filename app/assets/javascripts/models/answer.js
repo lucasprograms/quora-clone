@@ -18,6 +18,14 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
       return this._answerUpvotes;
     },
 
+    author: function () {
+      if (!this._author) {
+        this._author = new QuoraClone.Models.User();
+      }
+
+      return this._author;
+    },
+
     parse: function (response) {
 
       if (response.answer_comments) {
@@ -28,6 +36,11 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
       if (response.answer_upvotes) {
         this.answerUpvotes().set(response.answer_upvotes);
         delete response.answer_upvotes;
+      }
+
+      if (response.author) {
+            this.author().set(response.author, { parse: true });
+            delete response.author;
       }
 
       return response;

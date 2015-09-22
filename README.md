@@ -12,11 +12,11 @@ A clone of Quora built on Rails and Backbone. Users can:
 - [x] Create questions
 - [x] Answer questions
 - [x] View questions and answers
-- [ ] Follow topics
-- [ ] View a feed of followed topics
+- [x] Follow topics
+- [x] View a feed of followed topics
 - [ ] Search for questions by title
 - [ ] Search for questions by topic
-- [ ] Comment on question or answer
+- [x] Comment on question or answer
 
 ## Design Docs
 * [View Wireframes][views]

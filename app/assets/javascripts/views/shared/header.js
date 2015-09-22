@@ -31,7 +31,7 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
   },
 
   newQuestion: function () {
-    Backbone.history.navigate("#questions/new", {trigger: true})
+    Backbone.history.navigate("#questions/new", {trigger: true});
   },
 
   userMenu: function () {
@@ -39,11 +39,11 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
       model: QuoraClone.currentUser
     });
 
-    this.addSubview(".menu-zone", this.userMenuView)
+    this.addSubview(".menu-zone", this.userMenuView);
   },
 
   closeMenu: function () {
-    this.removeSubview(".menu-zone", this.userMenuView)
+    this.removeSubview(".menu-zone", this.userMenuView);
   }
 
 

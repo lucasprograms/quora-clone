@@ -4,6 +4,7 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   className: 'feed question-answer-item',
 
   initialize: function(options) {
+    this.topics = options.topics;
     this.answer = options.answer;
     this.question = options.question;
 
@@ -11,17 +12,20 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .show-comments' : 'showComments',
-    'click .submit' : 'submit',
+    'click .show-comments' : 'toggleComments',
+    'click .submit-comment' : 'submit',
     'click .cancel' : 'cancel'
   },
 
   render: function () {
 
     this.$el.html(this.template({
+      topic: this.question.topics().first(),
       answer: this.answer,
       question: this.question
     }));
+
+  
 
     var upvoteWidget = new QuoraClone.Views.AnswerUpvoteWidget({
       model: this.answer
@@ -29,14 +33,16 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
 
     this.addSubview(".answer-form-footer", upvoteWidget, true);
 
+    this.addComments();
+
+
+
     return this;
   },
 
-  showComments: function (e) {
+  addComments: function () {
 
-    e.preventDefault();
-
-    this.newAnswerComment(e);
+    this.newAnswerComment();
 
     this.answer.answerComments().each(function (answerComment) {
       var _answerCommentShowView = new QuoraClone.Views.AnswerCommentShowView({
@@ -45,10 +51,11 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
 
       this.addSubview(".comments-to-answer", _answerCommentShowView);
     }.bind(this));
+
+    $(".comments-to-answer").css("display", "none");
   },
 
-  newAnswerComment: function (e) {
-    e.preventDefault();
+  newAnswerComment: function () {
 
     this.answerCommentNewView = new QuoraClone.Views.AnswerCommentNewView({
       model: new QuoraClone.Models.AnswerComment(),
@@ -87,6 +94,16 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   },
 
   cancel: function () {
-    this.removeSubview(".new-comment-to-answer", this.answerCommentNewView);
-  }
+    toggleComments();
+  },
+
+  toggleComments: function () {
+    if (this.$(".comments-to-answer").css("display") == ("none")) {
+      this.$(".comments-to-answer").css("display", "block");
+      this.$(".new-comment-to-answer").css("display", "block");
+    } else {
+      this.$(".comments-to-answer").css("display", "none");
+      this.$(".new-comment-to-answer").css("display", "none");
+    }
+  },
 });

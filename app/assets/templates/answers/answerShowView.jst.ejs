@@ -1,3 +1,24 @@
-<div class="feed answer-body">
-  <%= answer.escape('body') %>
+
+<div class="answer-wrapper">
+  <div class="feed answer-author">
+    <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • No Bio
+  </div>
+
+  <div class="feed answer-body">
+    <%= answer.escape('body') %>
+  </div>
+
+  <div class="answer-form-footer group">
+    <button class="tertiary-button show-comments"
+            data-id="<%= answer.escape('id')%>">
+            Comments
+    </button>
+  </div>
+
+
+  <div class="comments-to-answer">
+    <div class="new-comment-to-answer">
+
+    </div>  
+  </div>
 </div>

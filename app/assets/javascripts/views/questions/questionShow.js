@@ -1,7 +1,9 @@
 QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/questionShow'],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.topics = options.topics;
+    this.users = options.users;
     this.listenTo(
       this.model,
       'sync',
@@ -16,7 +18,9 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ question: this.model }));
+    this.$el.html(this.template({
+      question: this.model
+    }));
 
     this.model.answers().each(function(answer) {
       this.addAnswer(answer);
@@ -26,6 +30,7 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   addAnswer: function (answer) {
+
     var answerShowView = new QuoraClone.Views.AnswerShowView({
       model: answer
     });
@@ -35,18 +40,19 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
 
   newAnswer: function () {
     this.answer = new QuoraClone.Models.Answer();
-    var answerNewView = new QuoraClone.Views.AnswerNewView({
+    this.answerNewView = new QuoraClone.Views.AnswerNewView({
       model: this.answer,
       question: this.model
     });
 
     $("button.answer-question").css("display", "none");
 
-    this.addSubview(".new-answer-to-question", answerNewView);
+    this.addSubview(".new-answer-to-question", this.answerNewView);
   },
 
   cancel: function () {
-    this.removeSubview(".new-answer-to-question", answerNewView);
+    $("button.answer-question").css("display", "block");
+    this.removeSubview(".new-answer-to-question", this.answerNewView);
   },
 
   submit: function () {

@@ -360,3 +360,39 @@ div {
   padding: 0 0 20px 0;
   margin: 0 auto;
 }
+
+.answer-to-question {
+  display: block;
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  border-top: 1px solid #000;
+}
+
+.new-answer-div {
+  display: block;
+  padding: 5px 0;
+  margin: 0 0 30px 0;
+}
+
+span.author-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+
+.answer-author {
+  color: #999;
+  padding: 0 0 10px 0;
+}
+
+.comments-to-answer {
+  display: none;
+}
+
+.comment-to-answer {
+
+}
+
+.new-comment-to-answer {
+  
+}

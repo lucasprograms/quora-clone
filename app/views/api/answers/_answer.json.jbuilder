@@ -7,6 +7,8 @@ json.answer_comments do
   end
 end
 
+json.author answer.author, :id, :first_name, :last_name, :email
+
 json.answer_upvotes answer.answer_upvotes
 
 json.num_upvotes answer.answer_upvotes.size
