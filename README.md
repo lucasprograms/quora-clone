@@ -1,4 +1,4 @@
-# Flux-capacitr
+# Quora Clone
 
 [Heroku link][heroku]
 
