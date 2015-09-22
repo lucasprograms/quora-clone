@@ -4,7 +4,7 @@ QuoraClone.Views.AnswerNewView = Backbone.View.extend({
   className: 'new-answer-to-question',
 
   initialize: function(options) {
-    this.question = options.question
+    this.question = options.question;
   },
 
   render: function () {
@@ -14,4 +14,4 @@ QuoraClone.Views.AnswerNewView = Backbone.View.extend({
     }));
     return this;
   }
-})
+});

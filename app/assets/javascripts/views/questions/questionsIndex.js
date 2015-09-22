@@ -6,7 +6,7 @@ QuoraClone.Views.QuestionsIndex = Backbone.CompositeView.extend({
       this.collection,
       'all',
       this.render
-    )
+    );
   },
 
   render: function () {
@@ -15,7 +15,7 @@ QuoraClone.Views.QuestionsIndex = Backbone.CompositeView.extend({
     }));
 
     this.collection.each(function(question) {
-      this.addQuestion(question)
+      this.addQuestion(question);
     }.bind(this));
 
     return this;
@@ -30,4 +30,4 @@ QuoraClone.Views.QuestionsIndex = Backbone.CompositeView.extend({
     this.addSubview(".questions-index", questionIndexItemView);
   }
 
-})
+});

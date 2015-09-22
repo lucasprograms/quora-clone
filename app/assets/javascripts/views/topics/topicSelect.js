@@ -6,22 +6,22 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
       this.collection,
       'sync',
       this.render
-    )
+    );
   },
 
   events : {
     'click .submit-topics' : 'submit'
   },
 
-  render () {
+  render: function () {
     this.$el.html(this.template({topics: this.collection}));
     return this;
   },
 
   submit: function () {
-    var topic_ids = []
+    var topic_ids = [];
     $("input:checked").each(function () {
-      topic_ids.push(this.value)
+      topic_ids.push(this.value);
     });
 
     $.ajax({
@@ -31,8 +31,8 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
       dataType: "json",
       success: function(data) {
         QuoraClone.currentUser.set(data);
-        Backbone.history.navigate("", {trigger: true})
+        Backbone.history.navigate("", {trigger: true});
       }
-    })
+    });
   }
-})
+});

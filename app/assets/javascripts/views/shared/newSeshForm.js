@@ -7,7 +7,7 @@ QuoraClone.Views.NewSeshForm = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template)
+    this.$el.html(this.template);
 
     var _signUpView = new QuoraClone.Views.UsersForm({
       callback: this.callback,
@@ -19,9 +19,9 @@ QuoraClone.Views.NewSeshForm = Backbone.CompositeView.extend({
       callback: this.callback,
       model: this.model,
       collection: this.collection
-    })
+    });
 
-    this.addSubview(".sign-up", _signUpView)
-    this.addSubview(".sign-in", _signInView)
+    this.addSubview(".sign-up", _signUpView);
+    this.addSubview(".sign-in", _signInView);
   }
-})
+});

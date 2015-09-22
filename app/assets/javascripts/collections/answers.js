@@ -4,7 +4,7 @@ QuoraClone.Collections.Answers = Backbone.Collection.extend({
 
   getOrFetch: function(id) {
     var collection = this;
-    var answer = collection.get(id)
+    var answer = collection.get(id);
 
     if (answer) {
       answer.fetch();
@@ -13,7 +13,7 @@ QuoraClone.Collections.Answers = Backbone.Collection.extend({
       collection.add(answer);
       answer.fetch({
         error: function () {
-          collection.remove(answer)
+          collection.remove(answer);
         }
       });
     }
@@ -21,4 +21,4 @@ QuoraClone.Collections.Answers = Backbone.Collection.extend({
     return answer;
   }
 
-})
+});

@@ -9,11 +9,11 @@ QuoraClone.Views.AnswerCommentShowView = Backbone.CompositeView.extend({
       this.model,
       'sync',
       this.render
-    )
+    );
   },
 
   render: function () {
     this.$el.html(this.template({ answerComment: this.model }));
     return this;
   }
-})
+});

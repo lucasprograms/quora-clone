@@ -2,7 +2,7 @@ QuoraClone.Views.UserMenu = Backbone.View.extend({
   template: JST['shared/userMenu'],
 
   initialize: function () {
-    this.render()
+    this.render();
   },
 
   render: function () {

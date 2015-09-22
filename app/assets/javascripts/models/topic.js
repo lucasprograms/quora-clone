@@ -3,26 +3,26 @@ QuoraClone.Models.Topic = Backbone.Model.extend({
 
   questions: function () {
     if (!this._questions) {
-      this._questions = new QuoraClone.Collections.Questions([], {topic: this})
+      this._questions = new QuoraClone.Collections.Questions([], {topic: this});
     }
 
-    return this._questions
+    return this._questions;
   },
 
   questionTopics: function () {
     if (!this._questionTopics) {
-      this._questionTopics = new QuoraClone.Collections.QuestionTopics([], {question: this})
+      this._questionTopics = new QuoraClone.Collections.QuestionTopics([], {question: this});
     }
 
-    return this._questionTopics
+    return this._questionTopics;
   },
 
   userTopics: function () {
     if (!this._userTopics) {
-      this._userTopics = new QuoraClone.Collections.UserTopics([], {user: this})
+      this._userTopics = new QuoraClone.Collections.UserTopics([], {user: this});
     }
 
-    return this._userTopics
+    return this._userTopics;
   },
 
   parse: function (response) {
@@ -41,4 +41,4 @@ QuoraClone.Models.Topic = Backbone.Model.extend({
     }
     return response;
   }
-})
+});

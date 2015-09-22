@@ -4,10 +4,10 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
     answerComments: function () {
       if (!this._answerComments) {
-        this._answerComments = new QuoraClone.Collections.AnswerComments([], {answerComments: this})
+        this._answerComments = new; QuoraClone.Collections.AnswerComments([], {answerComments: this})
       }
 
-      return this._answerComments
+      return this._answerComments;
     },
 
     answerUpvotes: function () {
@@ -15,7 +15,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
         this._answerUpvotes = new QuoraClone.Collections.AnswerUpvotes([], {answerUpvotes: this})
       }
 
-      return this._answerUpvotes
+      return this._answerUpvotes;
     },
 
     parse: function (response) {
@@ -58,12 +58,12 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
         success: function(data){
           model.set(data);
         }
-      })
+      });
 
     },
 
     destroyUpvote: function (e) {
-      upvote = this.answerUpvotes().findWhere({user_id: QuoraClone.currentUser.get('id')})
+      upvote = this.answerUpvotes().findWhere({user_id: QuoraClone.currentUser.get('id')});
 
       upvote.destroy();
     },
@@ -91,4 +91,4 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
 
 
 //  })
-})
+});

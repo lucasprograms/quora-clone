@@ -6,7 +6,7 @@ QuoraClone.Views.FeedShow = Backbone.CompositeView.extend({
       QuoraClone.currentUser,
       'sync',
       this.render
-    )
+    );
   },
 
   events: {
@@ -26,13 +26,13 @@ QuoraClone.Views.FeedShow = Backbone.CompositeView.extend({
     this.$el.html(content);
 
     this.collection.each(function(topic) {
-      this.addTopic(topic)
-    }.bind(this))
+      this.addTopic(topic);
+    }.bind(this));
 
     return this;
   },
 
   newQuestion: function () {
-    Backbone.history.navigate("/questions/new", {trigger: true})
+    Backbone.history.navigate("/questions/new", {trigger: true});
   }
-})
+});

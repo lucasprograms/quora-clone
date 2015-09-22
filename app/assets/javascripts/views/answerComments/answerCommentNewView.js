@@ -4,7 +4,7 @@ QuoraClone.Views.AnswerCommentNewView = Backbone.View.extend({
   className: 'new-comment-to-answer',
 
   initialize: function(options) {
-    this.answer = options.answer
+    this.answer = options.answer;
   },
 
   render: function () {
@@ -14,4 +14,4 @@ QuoraClone.Views.AnswerCommentNewView = Backbone.View.extend({
     }));
     return this;
   }
-})
+});

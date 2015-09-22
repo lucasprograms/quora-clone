@@ -4,7 +4,7 @@ QuoraClone.Collections.QuestionTopics = Backbone.Collection.extend({
 
   getOrFetch: function(id) {
     var collection = this;
-    var questionTopic = collection.get(id)
+    var questionTopic = collection.get(id);
 
     if (questionTopic) {
       questionTopic.fetch();
@@ -13,11 +13,11 @@ QuoraClone.Collections.QuestionTopics = Backbone.Collection.extend({
       collection.add(questionTopic);
       questionTopic.fetch({
         error: function () {
-          collection.remove(questionTopic)
+          collection.remove(questionTopic);
         }
       });
     }
 
     return questionTopic;
   }
-})
+});

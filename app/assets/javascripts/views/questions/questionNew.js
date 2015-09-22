@@ -53,4 +53,4 @@ QuoraClone.Views.QuestionNew = Backbone.View.extend({
   toIndex: function () {
     Backbone.history.navigate("#", {trigger: true});
   }
-})
+});

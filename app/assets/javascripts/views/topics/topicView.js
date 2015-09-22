@@ -9,20 +9,20 @@ QuoraClone.Views.TopicView = Backbone.CompositeView.extend({
       answer: answer
     });
 
-    this.$el.append(questionAnswerItemView.$el)
+    this.$el.append(questionAnswerItemView.$el);
   },
 
   addQuestion: function (question) {
     if (question.answers()) {
       question.answers().each(function (answer) {
-        this.addQuestionAnswerItem(question, answer)
-      }.bind(this))
+        this.addQuestionAnswerItem(question, answer);
+      }.bind(this));
     }
   },
 
   render: function () {
     this.model.questions().each(function(question) {
-      this.addQuestion(question)
-    }.bind(this))
+      this.addQuestion(question);
+    }.bind(this));
   }
-})
+});

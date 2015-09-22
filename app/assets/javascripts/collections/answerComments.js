@@ -4,7 +4,7 @@ QuoraClone.Collections.AnswerComments = Backbone.Collection.extend({
 
   getOrFetch: function(id) {
     var collection = this;
-    var answerComment = collection.get(id)
+    var answerComment = collection.get(id);
 
     if (answerComment) {
       answerComment.fetch();
@@ -13,11 +13,11 @@ QuoraClone.Collections.AnswerComments = Backbone.Collection.extend({
       collection.add(answerComment);
       answerComment.fetch({
         error: function () {
-          collection.remove(answerComment)
+          collection.remove(answerComment);
         }
       });
     }
 
     return answerComment;
   }
-})
+});

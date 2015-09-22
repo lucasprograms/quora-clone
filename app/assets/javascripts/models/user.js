@@ -71,10 +71,10 @@ QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
 
   topics: function () {
     if (!this._topics) {
-      this._topics = new QuoraClone.Collections.Topics([], {user: this})
+      this._topics = new QuoraClone.Collections.Topics([], {user: this});
     }
 
-    return this._topics
+    return this._topics;
   },
 
   parse: function (response) {
