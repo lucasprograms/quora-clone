@@ -30,6 +30,7 @@ QuoraClone.Views.UsersForm = Backbone.View.extend({
         QuoraClone.currentUser.fetch();
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("#topics/new", { trigger: true });
+        $("html div.cover-background-picture").remove();
       },
       error: function(data){
         alert("Form invalid. Let the user know what went wrong.");

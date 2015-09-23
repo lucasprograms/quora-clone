@@ -32,6 +32,7 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
   },
 
   signInCallback: function(event){
+    $("html div.cover-background-picture").remove();
     if(this.callback) {
       this.callback();
     } else {

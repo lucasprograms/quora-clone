@@ -296,26 +296,6 @@ div {
   padding-top: 8px;
 }
 
-.sign-in-up-wrapper {
-  width: 600px;
-  padding: 20px 20px;
-  margin: 0 auto;
-  border: 1px solid #000;
-}
-
-.sign-up {
-  width: 250px;
-  padding: 0 20px 0 0;
-  float: left;
-  border-right: 1px solid #000;
-}
-
-.sign-in {
-  width: 250px;
-  padding: 0 0 0 20px;
-  float: left;
-}
-
 .sign-in-up-wrapper input {
   margin: 5px 0;
   padding: 3px;
@@ -366,9 +346,7 @@ div {
 
 }
 
-.sign-in-up-wrapper button {
-  float: right;
-}
+
 
 .page-header {
   font-size: 24px;
@@ -478,4 +456,104 @@ li.comment-to-answer {
   background: #ccc;
   opacity: .3;
   z-index: 1001;
+}
+
+.form-row > label {
+  float: left;
+  display: block;
+  width: 70px;
+}
+
+.form-row > input {
+  position: relative;
+  top: -10px;
+  float: right;
+  display: block;
+  width: 150px;
+}
+
+.form-row:first-child {
+  margin: 10px 0 0 0;
+}
+
+.sign-in {
+  padding: 0 0 0 0;
+}
+
+.sign-up {
+  padding: 0 35px 0 0;
+}
+
+.sign-in-item > input {
+  width: 270px;
+  float: right;
+}
+
+
+.sign-in-up-wrapper {
+  position: relative;
+  z-index: 1111;
+  width: 650px;
+  padding: 22px;
+  border-radius: 6px;
+  margin: 40px auto 0 auto;
+  border: 1px solid #dcdcdc;
+  background: #fff;
+}
+
+.sign-in-up-wrapper button {
+  float: right;
+}
+
+.sign-in-up-wrapper h2 {
+  z-index: 1111;
+  margin: 0 0 20px 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sign-in h2 {
+  margin: 0 0 20px 35px;
+}
+
+.sign-up {
+  width: 305px;
+  float: left;
+  border-right: 1px solid #dcdcdc;
+}
+
+.sign-in {
+  width: 305px;
+  float: left;
+}
+
+.sign-in-subheader {
+  position: relative;
+  z-index: 1111;
+  text-align: center;
+  font-weight: 400;
+  font-family: Georgia,Times,"Times New Roman",serif;
+  color: #666;
+  font-size: 19px;
+}
+
+.sign-in-logo {
+  position: relative;
+  z-index: 1111;
+  margin: 0 0 20px 0;
+  color: #b00;
+  text-align: center;
+  font-size: 72px;
+  font-weight: 700;
+  font-family: "Le Monde Courrier", baskerville, serif;
+}
+
+.cover-background-picture {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: image-url("//qsf.is.quoracdn.net/-2f32a993187981f4.png");
+  z-index: 3;
+  opacity: .3;
 }

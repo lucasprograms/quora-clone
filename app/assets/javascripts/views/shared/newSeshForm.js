@@ -23,5 +23,6 @@ QuoraClone.Views.NewSeshForm = Backbone.CompositeView.extend({
 
     this.addSubview(".sign-up", _signUpView);
     this.addSubview(".sign-in", _signInView);
+    $("html").prepend("<div class='cover-background-picture'></div>");
   }
 });
