@@ -25,9 +25,9 @@ topics = Topic.create([
   ])
 
 users = User.create([
-  {email: 'lambda@aa.io', password: 'lambda', first_name: 'Charles', last_name: 'Biddensworth'},
-  {email: 'lucasm@aa.io', password: 'lucasm', first_name: 'Elizabeth', last_name: 'Reddington'},
-  {email: 'quimbies@aa.io', password: 'quimbies', first_name: 'Redford', last_name: 'Calvington'}
+  {email: 'lambda@aa.io', password: 'lambda', first_name: 'Charles', last_name: 'Biddensworth', subscribed_topic_ids: [4, 8, 12, 14, 15]},
+  {email: 'lucasm@aa.io', password: 'lucasm', first_name: 'Elizabeth', last_name: 'Reddington', subscribed_topic_ids: [3, 9, 10, 11]},
+  {email: 'quimbies@aa.io', password: 'quimbies', first_name: 'Redford', last_name: 'Calvington', subscribed_topic_ids: [1, 3, 11]}
   ])
 
 questions = Question.create([

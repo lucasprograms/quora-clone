@@ -485,8 +485,15 @@ li.comment-to-answer {
 }
 
 .sign-in-item > input {
-  width: 270px;
   float: right;
+  background: #eee;
+  width: 270px;
+  font-size: 15px;
+  line-height: 1.4;
+  padding-left: 8px;
+  padding-right: 8px;
+  min-height: 32px;
+  margin-bottom: 8px;
 }
 
 
@@ -499,6 +506,7 @@ li.comment-to-answer {
   margin: 40px auto 0 auto;
   border: 1px solid #dcdcdc;
   background: #fff;
+  box-shadow: 0 2px 4px 0 #dcdcdc;
 }
 
 .sign-in-up-wrapper button {
@@ -507,9 +515,13 @@ li.comment-to-answer {
 
 .sign-in-up-wrapper h2 {
   z-index: 1111;
+  font-size: 11px;
   margin: 0 0 20px 0;
-  font-size: 13px;
-  font-weight: 700;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: bold;
+  padding-bottom: 8px;
 }
 
 .sign-in h2 {
