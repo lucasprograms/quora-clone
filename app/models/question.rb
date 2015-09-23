@@ -1,5 +1,7 @@
 class Question < ActiveRecord::Base
   validates :title, :author_id, presence: true
+  include PgSearch
+  multisearchable against: [:title, :body]
 
   has_many :answers
   has_many :question_comments
