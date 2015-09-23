@@ -17,7 +17,7 @@ class Api::QuestionTopicsController < ApplicationController
     end
 
     def index
-      @question_topics = QuestionTopic.all
+      @question_topics = QuestionTopic.includes(:answers).all
       render json: @question_topics
     end
 

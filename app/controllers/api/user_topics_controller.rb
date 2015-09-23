@@ -17,11 +17,11 @@ class Api::UserTopicsController < ApplicationController
       end
 
       def index
-        @user_topics = UserTopic.all
+        @user_topics = UserTopic.includes(:answers).all
         render json: @user_topics
       end
 
-      def show	
+      def show
         @user_topic = UserTopic.includes(:answers).find(params[:id])
         render :show
       end

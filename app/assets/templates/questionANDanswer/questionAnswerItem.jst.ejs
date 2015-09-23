@@ -1,6 +1,8 @@
 <div class="question-answer-item-wrapper">
     <div class="show-item-description">
-      Answer written • <%= topic.escape('subject') %>
+      <% if (topic) { %>
+        Answer written • <%= topic.escape('subject') %>
+      <% } %>
     </div>
     <div class="feed question-title">
       <a href="#questions/<%= question.escape('id')%>"><%= question.escape('title') %></a>

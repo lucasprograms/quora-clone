@@ -22,12 +22,12 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @questions = Question.includes(:answers, :topics).all
     render :index
   end
 
   def show
-    @question = Question.includes(:answers).find(params[:id])
+    @question = Question.includes(:answers, :topics).find(params[:id])
     render :show
   end
 

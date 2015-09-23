@@ -9,6 +9,8 @@ end
 
 json.author answer.author, :id, :first_name, :last_name, :email
 
+json.question answer.question, :id, :title, :body, :author_id
+
 json.answer_upvotes answer.answer_upvotes
 
 json.num_upvotes answer.answer_upvotes.size

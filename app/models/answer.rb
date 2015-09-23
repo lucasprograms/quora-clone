@@ -1,7 +1,8 @@
 class Answer < ActiveRecord::Base
-  validates :body, :question_id, :author_id, presence: true
   include PgSearch
-  multisearchable against: [:body]
+  multisearchable against: [:body, :question]
+
+  validates :body, :question_id, :author_id, presence: true
 
   has_many :answer_upvotes
   has_many :upvoters, :through => :answer_upvotes, :source => :user

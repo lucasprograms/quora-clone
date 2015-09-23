@@ -2,7 +2,6 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/questionShow'],
 
   initialize: function (options) {
-    this.topics = options.topics;
     this.users = options.users;
     this.listenTo(
       this.model,

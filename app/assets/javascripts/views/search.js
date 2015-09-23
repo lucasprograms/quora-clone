@@ -1,10 +1,12 @@
-QuoraClone.Views.Search = Backbone.View.extend({
+QuoraClone.Views.Search = Backbone.CompositeView.extend({
 
-	initialize: function () {
+	initialize: function (options) {
+		this.query = options.query;
 		this.bindScroll(); // for infinite scroll
 		this.searchResults = new QuoraClone.Collections.SearchResults();
 		this.searchResults.pageNum = 1;
-		this.listenTo(this.searchResults, "sync", this.render);
+		this.listenTo(this.searchResults, "add", this.render);
+		this.doSearch();
 	},
 
 	events: {
@@ -16,18 +18,30 @@ QuoraClone.Views.Search = Backbone.View.extend({
 	template: JST.search,
 
 	render: function () {
-		var content = this.template({
-			results: this.searchResults
-		});
-		this.$el.html(content);
+		this.$el.html(this.template);
+		this.searchResults.each( function(model) {
+
+			if (model instanceof QuoraClone.Models.Answer) {
+				var _answerSearchView = new QuoraClone.Views.AnswerSearchItem({
+					model: model
+				});
+
+				this.addSubview(".results", _answerSearchView);
+			} else {
+				var _questionSearchView = new 		QuoraClone.Views.QuestionSearchItem({
+					model: model
+				});
+
+				this.addSubview(".results", _questionSearchView);
+			}
+		}.bind(this));
 
 		return this;
 	},
 
-	search: function (event) {
-		event.preventDefault();
+	doSearch: function () {
 		this.searchResults.pageNum = 1;
-		this.searchResults.query = this.$(".query").val();
+		this.searchResults.query = this.query;
 
 		this.searchResults.fetch({
 			data: {
@@ -50,6 +64,18 @@ QuoraClone.Views.Search = Backbone.View.extend({
 		}
 	},
 
+	diffPage: function(event, delta) {
+		this.searchResults.fetch({
+			data: {
+				query: this.searchResults.query,
+				page: this.searchResults.pageNum + delta
+			},
+			success: function () {
+				this.searchResults.pageNum = this.searchResults.pageNum + delta;
+			}.bind(this)
+		});
+	},
+
 	nextPage: function (event) {
 		this.searchResults.fetch({
 			data: {
@@ -58,6 +84,18 @@ QuoraClone.Views.Search = Backbone.View.extend({
 			},
 			success: function () {
 				this.searchResults.pageNum = this.searchResults.pageNum + 1;
+			}.bind(this)
+		});
+	},
+
+	prevPage: function (event) {
+		this.searchResults.fetch({
+			data: {
+				query: this.searchResults.query,
+				page: this.searchResults.pageNum - 1
+			},
+			success: function () {
+				this.searchResults.pageNum = this.searchResults.pageNum - 1;
 			}.bind(this)
 		});
 	},

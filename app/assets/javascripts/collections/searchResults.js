@@ -16,11 +16,6 @@ QuoraClone.Collections.SearchResults = Backbone.Collection.extend({
 
 		return new QuoraClone.Models[type](attrs);
 
-		// if (type === "User") {
-		// 	return new QuoraClone.Models.User(attrs);
-		// } else {
-		// 	return new QuoraClone.Models.Post(attrs);
-		// }
 	}
 
 });

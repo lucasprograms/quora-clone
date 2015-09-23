@@ -1,35 +1,7 @@
-
-<h1>Search!</h1>
-
-<label>
-	Query
-	<input type="text" class="query">
-</label>
-
 <section class="results">
 
-<nav>
-	Displaying page number <%= results.pageNum %> out
-	of <%= results.total_count %> results
-	<a class="prev-page" href="javascript:void(0)">Prev</a>
-	<a class="next-page" href="javascript:void(0)">Next</a>
-</nav>
+<div class="main-wrapper group">
+	  <p class="column-header search">Search Results</p>
+</div>
 
-	<% results.each(function (result) { %>
-		<article>
-			<% if (result instanceof QuoraClone.Models.Answer) { %>
-
-				<%= result.escape("body") %>
-
-			<% } else { %>
-
-				<header>
-					<%= result.escape("title") %>
-				</header>
-
-				<p><%= result.escape("body") %></p>
-
-			<% } %>
-		</article>
-	<% }) %>
 </section>

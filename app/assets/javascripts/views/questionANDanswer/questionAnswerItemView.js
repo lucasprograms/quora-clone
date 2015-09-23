@@ -4,11 +4,17 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
   className: 'feed question-answer-item',
 
   initialize: function(options) {
-    this.topics = options.topics;
     this.answer = options.answer;
-    this.question = options.question;
-
-    this.render();
+    if (options.question) {
+      this.question = options.question;
+      this.render();
+    } else {
+      this.listenTo(
+        this.answer,
+        'sync',
+        this.setQuestion
+      );
+    }
   },
 
   events: {
@@ -17,8 +23,12 @@ QuoraClone.Views.QuestionAnswerItemView = Backbone.CompositeView.extend({
     'click .cancel' : 'cancel'
   },
 
-  render: function () {
+  setQuestion: function () {
+    this.question = this.answer.question();
+    this.render();
+  },
 
+  render: function () {
     this.$el.html(this.template({
       topic: this.question.topics().first(),
       question: this.question

@@ -9,6 +9,12 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
       'sync',
       this.render
     );
+    this.listenTo(
+      this.model.answers(),
+      'add',
+      this.render
+    );
+
   },
 
   events: {
@@ -52,13 +58,10 @@ QuoraClone.Views.QuestionIndexItemView = Backbone.CompositeView.extend({
     this.answer.save({}, {
 
       success: function () {
-        var collection = new QuoraClone.Collections.Answers();
-        collection.add(this.answer, { merge: true });
+        this.model.answers().add(this.answer, { merge: true });
 
         this.removeSubview(".new-answer-to-question", this.answerNewView);
         this.$("button.answer-question").css("display", "block");
-
-        this.model.fetch();
       }.bind(this)
 
     });
