@@ -19,7 +19,7 @@ class Api::AnswerCommentsController < ApplicationController
 
     def index
       @answer_comments = AnswerComment.all
-      render json: @answer_comments
+      render :index
     end
 
     def show
