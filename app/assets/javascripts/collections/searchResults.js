@@ -1,4 +1,4 @@
-Demo.Collections.SearchResults = Backbone.Collection.extend({
+QuoraClone.Collections.SearchResults = Backbone.Collection.extend({
 
 	url: "/api/search",
 
@@ -17,9 +17,9 @@ Demo.Collections.SearchResults = Backbone.Collection.extend({
 		return new QuoraClone.Models[type](attrs);
 
 		// if (type === "User") {
-		// 	return new Demo.Models.User(attrs);
+		// 	return new QuoraClone.Models.User(attrs);
 		// } else {
-		// 	return new Demo.Models.Post(attrs);
+		// 	return new QuoraClone.Models.Post(attrs);
 		// }
 	}
 

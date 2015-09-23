@@ -1,8 +1,8 @@
-Demo.Views.Search = Backbone.View.extend({
+QuoraClone.Views.Search = Backbone.View.extend({
 
 	initialize: function () {
 		this.bindScroll(); // for infinite scroll
-		this.searchResults = new Demo.Collections.SearchResults();
+		this.searchResults = new QuoraClone.Collections.SearchResults();
 		this.searchResults.pageNum = 1;
 		this.listenTo(this.searchResults, "sync", this.render);
 	},
