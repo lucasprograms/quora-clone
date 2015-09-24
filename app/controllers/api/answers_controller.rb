@@ -21,10 +21,8 @@ class Api::AnswersController < ApplicationController
     @answers = Answer.includes(:question, :answer_upvotes, :answer_comments, :upvoters).all
     if logged_in?
       @upvotes_hash = current_user.upvoted_answers_hash
-      @downvotes_hash = current_user.downvoted_answers_hash
     else
       @upvotes_hash = {}
-      @downvotes_hash = {}
     end
     render :index
   end

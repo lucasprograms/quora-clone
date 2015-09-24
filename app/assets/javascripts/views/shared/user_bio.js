@@ -10,7 +10,7 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.append(this.template);
+    this.$el.append(this.template({ bio: QuoraClone.currentUser.get('bio')}));
     return this;
   },
 

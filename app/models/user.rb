@@ -60,18 +60,6 @@ class User < ActiveRecord::Base
     upvoted_answers_hash
   end
 
-  def downvoted_answers_hash
-    zipped_downvotes = downvoted_answers.pluck(:answer_id).zip(downvoted_answers)
-    downvoted_answers_hash = {}
-
-    zipped_downvotes.each do |(id, downvote)|
-      downvoted_answers_hash[id] = downvote
-    end
-
-    downvoted_answers_hash
-  end
-
-
   def subscribe(topic_id)
     topic = UserTopic.new({
       topic_id: topic_id,
