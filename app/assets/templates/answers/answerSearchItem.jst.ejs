@@ -8,6 +8,7 @@
 
           <div class="feed answer-author">
             <% biography = !bio ? "No Bio" : bio %>
+            <img src="<%= img %>" class="avatar">
             <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • <%= biography %>
           </div>
 
