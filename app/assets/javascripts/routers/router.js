@@ -9,7 +9,11 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this.collection = new QuoraClone.Collections.Users();
-    this.collection.fetch();
+
+    if (QuoraClone.currentUser.get('id')) {
+      this.collection.fetch();
+    }
+
   },
 
   routes: {
@@ -55,6 +59,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedOut()) { return; }
 
     var model = new this.collection.model();
+
     var newSeshView = new QuoraClone.Views.NewSeshForm({
       callback: callback,
       collection: this.collection,
@@ -111,8 +116,9 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   },
 
   userFeed: function () {
+    // debugger
     if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
-      this.topicSelect();
+      Backbone.history.navigate("topics/new", { trigger: true });
     } else {
       var callback = this.userFeed.bind(this);
       if (!this._requireSignedIn(callback)) { return; }
