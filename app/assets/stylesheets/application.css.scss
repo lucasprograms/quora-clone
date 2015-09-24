@@ -134,7 +134,7 @@ div {
   position: relative;
   float: left;
   display: block;
-  padding: 14px 20px 15px 20px;
+  padding: 14px 15px 15px 15px;
 }
 
 .header-nav > form > input {
@@ -160,10 +160,6 @@ div {
   font-size: 24px;
   font-family: "Le Monde Courrier", baskerville, serif;
   top: 2px;
-}
-
-.header-nav > div {
-  cursor: default;
 }
 
 .primary-button.header-button {
@@ -609,4 +605,13 @@ li.comment-to-answer {
   font-size: 24px;
   position: relative;
   top: -20px;
+}
+
+.menu-zone {
+  position: relative;
+  display: none;
+  width: 200px;
+  height: 200px;
+  background: red;
+  z-index: 10000;
 }

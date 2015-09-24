@@ -9,7 +9,11 @@
     <input
       class="topic-option"
       type="checkbox"
-      value="<%= topic.escape('id') %>">
+      value="<%= topic.escape('id') %>"
+      <% if (_.contains(ids, topic.escape('id'))) { %>
+      checked
+      <% } %>
+    >
       <%= topic.escape('subject') %>
     </div>
   <% }) %>

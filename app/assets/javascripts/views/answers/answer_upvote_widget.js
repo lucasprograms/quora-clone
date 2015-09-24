@@ -6,7 +6,7 @@ QuoraClone.Views.AnswerUpvoteWidget = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'change:num_upvotes', this.render);
   },
 
   toggleUpvote: function (e) {

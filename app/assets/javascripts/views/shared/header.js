@@ -8,7 +8,8 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
   events: {
     "click #sign-out-link": "signOut",
     "click button" : "newQuestion",
-    "submit .search" : "commenceSearch"
+    "submit .search" : "commenceSearch",
+    "click .zone6kingz" : "userMenu"
   },
 
   template: JST['shared/header'],
@@ -40,10 +41,12 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
     });
 
     this.addSubview(".menu-zone", this.userMenuView);
+    $(".menu-zone").css("display", "block");
   },
 
   closeMenu: function () {
     this.removeSubview(".menu-zone", this.userMenuView);
+    $(".menu-zone").css("display", "none");
   },
 
   commenceSearch: function (e) {

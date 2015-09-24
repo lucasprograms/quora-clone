@@ -19,7 +19,16 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({topics: this.collection}));
+    var ids = [];
+
+    QuoraClone.currentUser.topics().each( function(topic){
+      ids.push(topic.escape('id'));
+    });
+
+    this.$el.html(this.template({
+      topics: this.collection,
+      ids: ids
+    }));
     return this;
   },
 

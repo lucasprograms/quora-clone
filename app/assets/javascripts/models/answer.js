@@ -91,7 +91,7 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     destroyUpvote: function (e) {
       upvote = this.answerUpvotes().findWhere({user_id: QuoraClone.currentUser.get('id')});
 
-      upvote.destroy();
+      upvote.destroy({wait: true});
     },
 
     toggleUpvote: function (e) {
