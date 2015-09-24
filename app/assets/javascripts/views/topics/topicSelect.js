@@ -61,7 +61,7 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
         success: function(data) {
           QuoraClone.currentUser.set(data);
 
-          Backbone.history.navigate("", {trigger: true});
+          Backbone.history.navigate("fbLanding", {trigger: true});
         }
       });
 
