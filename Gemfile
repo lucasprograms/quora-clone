@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'backbone-on-rails'
 gem 'bcrypt'
 gem 'bootstrap-sass'
