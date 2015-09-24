@@ -488,6 +488,10 @@ li.comment-to-answer {
   z-index: 1001;
 }
 
+.sign-up .form-row {
+
+}
+
 .form-row > label {
   float: left;
   display: block;
@@ -526,7 +530,6 @@ li.comment-to-answer {
   margin-bottom: 8px;
 }
 
-
 .sign-in-up-wrapper {
   position: relative;
   z-index: 1111;
@@ -559,7 +562,7 @@ li.comment-to-answer {
 }
 
 .sign-up {
-  width: 305px;
+  width: 290px;
   float: left;
   border-right: 1px solid #dcdcdc;
 }
@@ -622,4 +625,35 @@ li.comment-to-answer {
   height: 200px;
   background: red;
   z-index: 10000;
+}
+
+.fb-login {
+  background-color: #507cc0;
+  margin: 15px auto;
+  position: relative;
+  z-index: 1111;
+  width: 254px;
+  height: 36px;
+  padding: 14px 0 0 0;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  border: 1px solid #2d4373;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.fb-login > .fb-logo {
+  margin: 0 0 0 20px;
+  float: left;
+  width: 24px;
+  height: 24px;
+  background-size: 24px 24px;
+  background-image: image-url("//qsf.is.quoracdn.net/-d153e4281adcbeb2.png");
+}
+
+.fb-login > .fb-words {
+  margin: 0 0 0 20px;
+  float: left;
 }
