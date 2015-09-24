@@ -13,7 +13,6 @@ QuoraClone.Views.AnswerSearchItem = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
     this.$el.html(this.template({
       answer: this.model,
       author: this.model.author(),
