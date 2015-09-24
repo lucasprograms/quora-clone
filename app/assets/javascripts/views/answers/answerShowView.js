@@ -16,7 +16,8 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({
       answer: this.model,
-      author: this.model.author()
+      author: this.model.author(),
+      bio: this.model.author().get('bio')
     }));
 
     this.addUpvoteWidget();

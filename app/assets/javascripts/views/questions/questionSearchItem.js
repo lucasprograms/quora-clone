@@ -15,7 +15,8 @@ QuoraClone.Views.QuestionSearchItem = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({
       question: this.model,
-      author: this.model.author()
+      author: this.model.author(),
+      bio: this.model.author().get('bio')
     }));
     return this;
   }

@@ -9,7 +9,7 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
     "click #sign-out-link": "signOut",
     "click button" : "newQuestion",
     "submit .search" : "commenceSearch",
-    "click .zone6kingz" : "userMenu"
+    "click .menu-opener" : "toggleMenu",
   },
 
   template: JST['shared/header'],
@@ -35,18 +35,16 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
     Backbone.history.navigate("#questions/new", {trigger: true});
   },
 
-  userMenu: function () {
-    this.userMenuView = new QuoraClone.Views.UserMenu({
-      model: QuoraClone.currentUser
-    });
-
-    this.addSubview(".menu-zone", this.userMenuView);
-    $(".menu-zone").css("display", "block");
+  toggleMenu: function () {
+    if (this.$(".header-menu").css("display") === "none") {
+      this.$(".header-menu").css("display", "block");
+    } else {
+      this.$(".header-menu").css("display", "none");
+    }
   },
 
   closeMenu: function () {
-    this.removeSubview(".menu-zone", this.userMenuView);
-    $(".menu-zone").css("display", "none");
+    this.$(".header-menu").css("display", "none");
   },
 
   commenceSearch: function (e) {

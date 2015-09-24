@@ -618,13 +618,36 @@ li.comment-to-answer {
   top: -20px;
 }
 
-.menu-zone {
-  position: relative;
+.header-menu {
   display: none;
-  width: 200px;
-  height: 200px;
-  background: red;
-  z-index: 10000;
+  position: fixed;
+  top: 52px;
+  left: 60%;
+  width: 100%;
+  z-index: 1001;
+  width: 120px;
+  background: #eee;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.header-menu > li {
+  padding: 10px 0px;
+  margin: 0px 5px;
+  border-bottom: 1px solid #aaa;
+}
+
+.header-menu > li:last-child {
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.header-menu > li:first-child {
+  padding-top: 5px;
 }
 
 .fb-login {
@@ -656,4 +679,8 @@ li.comment-to-answer {
 .fb-login > .fb-words {
   margin: 0 0 0 20px;
   float: left;
+}
+
+.menu-opener {
+  cursor: pointer;
 }

@@ -14,8 +14,11 @@ QuoraClone.Collections.SearchResults = Backbone.Collection.extend({
 		var type = attrs._type;
 		delete attrs._type;
 
-		return new QuoraClone.Models[type](attrs);
+		var model = new QuoraClone.Models[type]();
+		
+		model.set(model.parse(attrs));
 
+		return model;
 	}
 
 });

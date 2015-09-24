@@ -13,7 +13,15 @@
 
       <a href="#questions">Write</a>
 
-      <a href="#topics/new">Follow Topics</a>
+      <div class="menu-opener">
+        <%= QuoraClone.currentUser.escape("first_name") %>
+      </div>
+
+      <ul class="header-menu">
+        <li><a href="#topics/new"> Follow Topics </a></li>
+        <li> Edit Bio </li>
+        <li id="sign-out-link"> Sign Out </li>
+      </ul>
 
       <button class="primary-button header-button">Ask Question</button>
 

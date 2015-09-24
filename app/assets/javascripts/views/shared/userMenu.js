@@ -25,6 +25,6 @@ QuoraClone.Views.UserMenu = Backbone.View.extend({
   },
 
   leaveMenu: function () {
-    debugger
+    // debugger
   }
 });
