@@ -6,7 +6,7 @@
             <%= answer.question().escape('title') %>
           </div>
 
-          <div class="feed answer-author">
+          <div class="feed answer-author group">
             <% biography = !bio ? "No Bio" : bio %>
             <span class="author-avatar">
               <img src="<%= img %>" class="avatar">
@@ -19,7 +19,7 @@
             </span>
           </div>
 
-          <div class="feed answer-body">
+          <div class="search answer-body">
             <%= answer.escape('body').substring(0, 200) %> ....
           </div>
       </div>

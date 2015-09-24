@@ -231,6 +231,10 @@ div {
   line-height: 1.4;
 }
 
+.feed.answer-author {
+  margin-top: 10px;
+}
+
 .feed.answer-author.bio {
   font-size: 15px;
   line-height: 1.4;
@@ -604,7 +608,7 @@ li.comment-to-answer {
 }
 
 .search-item {
-  margin: 10px auto;
+  margin: 10px auto 20px auto;
   width: 570px;
 }
 
