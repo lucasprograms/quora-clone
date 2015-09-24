@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :user_topics
   has_many :subscribed_topics, :through => :user_topics, :source => :topic
 
-  has_attached_file :avatar, default_url: "missing.png"
+  has_attached_file :avatar, default_url: "http://s3.amazonaws.com/fauxrum-dev/users/avatars/000/000/003/original/1430558223_hqdefault.jpg?1443131815"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   before_validation :ensure_session_token
