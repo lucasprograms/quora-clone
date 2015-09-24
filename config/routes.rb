@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   root to: 'root#root'
 
+  resource :omniauth_session, only: [:create]
+
   namespace :api, defaults: { format: :json } do
     get "/search", to: "root#search"
-    resources :users
+    resources :users, only: [:index, :show, :create, :update]
     resource :session, only: [:create, :destroy, :show]
     resources :topics, except: [:new, :edit]
     resources :answers, except: [:new, :edit]
@@ -17,6 +19,6 @@ Rails.application.routes.draw do
     resources :answer_upvotes
   end
 
-  get "auth/facebook/callback" => "api/sessions#create"
+  get "auth/facebook/callback" => "omniauth_sessions#create"
 
 end

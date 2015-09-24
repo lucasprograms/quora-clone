@@ -33,7 +33,7 @@ QuoraClone.Views.UsersForm = Backbone.View.extend({
         $("html div.cover-background-picture").remove();
       },
       error: function(data){
-        alert("Form invalid. Let the user know what went wrong.");
+        alert("Form invalid");
         console.log(data);
       }
     });

@@ -153,13 +153,21 @@ div {
   box-sizing: border-box;
 }
 
+.header-nav > form {
+  padding: 14px 15px 8px 15px;
+}
+
 .header-nav > a:first-child {
   font-weight: 400;
   color: #f00;
-  padding: 6px 20px 9px 20px;
+  padding: 6px 20px 8px 20px;
   font-size: 24px;
-  font-family: "Le Monde Courrier", baskerville, serif;
+  font-family: "Le Monde Courrier", serif;
   top: 2px;
+}
+
+.header-nav > a:first-child:hover {
+  background: inherit;
 }
 
 .primary-button.header-button {

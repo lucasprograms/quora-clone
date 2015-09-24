@@ -2,6 +2,8 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
   template: JST['topics/topicSelect'],
 
   initialize: function () {
+    QuoraClone.currentUser.set('has_ever_logged_in', true);
+
     this.listenTo(
       this.collection,
       'sync',

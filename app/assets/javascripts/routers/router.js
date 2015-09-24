@@ -14,6 +14,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '' : 'userFeed',
+    '_=_' : 'userFeed',
     'questions' : 'indexQuestions',
     'questions/new' : 'newQuestion',
     'questions/:id' : 'showQuestion',
