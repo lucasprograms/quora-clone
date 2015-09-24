@@ -1,6 +1,6 @@
 json.extract! question, :id, :title, :body, :author_id
 
-json.author question.author, :id, :first_name, :last_name, :email
+json.author question.author, :id, :first_name, :last_name, :email, :bio
 
 json.answers do
   json.array! question.answers do |answer|

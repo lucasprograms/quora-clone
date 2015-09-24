@@ -7,7 +7,8 @@
           </div>
 
           <div class="feed answer-author">
-            <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • No Bio
+            <% biography = !bio ? "No Bio" : bio %>
+            <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • <%= biography %>
           </div>
 
           <div class="feed answer-body">

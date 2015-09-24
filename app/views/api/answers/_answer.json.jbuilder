@@ -7,7 +7,7 @@ json.answer_comments do
   end
 end
 
-json.author answer.author, :id, :first_name, :last_name, :email
+json.author answer.author, :id, :first_name, :last_name, :email, :bio
 
 json.question answer.question, :id, :title, :body, :author_id
 

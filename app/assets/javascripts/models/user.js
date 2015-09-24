@@ -85,6 +85,22 @@ QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
     }
     return response;
 
+  },
+
+  saveFormData: function (formData, options) {
+    var model = this;
+
+    $.ajax({
+      url: "/api/users/" + QuoraClone.currentUser.get('id'),
+      type: "PATCH",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function () {
+        debugger
+        options.success && options.success();
+      }
+    });
   }
 
 });

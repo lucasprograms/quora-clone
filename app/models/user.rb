@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
   has_many :user_topics
   has_many :subscribed_topics, :through => :user_topics, :source => :topic
 
+  has_attached_file :avatar, default_url: "missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   before_validation :ensure_session_token
 
   def self.generate_session_token

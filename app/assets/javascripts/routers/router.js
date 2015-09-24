@@ -27,7 +27,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   },
 
   editBio: function () {
-    var callback = this.search.bind(this);
+    var callback = this.editBio.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
     var _userBio = new QuoraClone.Views.UserBio();

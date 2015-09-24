@@ -5,3 +5,5 @@ json.topics do
     json.partial! 'api/topics/topic', topic: topic
   end
 end
+
+json.avatar asset_path(user.avatar.url)

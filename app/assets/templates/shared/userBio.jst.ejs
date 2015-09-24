@@ -1,3 +1,13 @@
-<input class="user-bio" type="text" value="<%= bio %>">
+<form>
+  <p class="status-msg">
 
-<button class="submit-bio">Update Bio</button>
+  </p>
+  <input class="user-bio" type="text" value="<%= bio %>">
+  <button class="submit-bio">Update Bio</button>
+
+  <input type="file" name="user[avatar]" id="input-image">
+  <img src="<%= img %>" class="avatar">
+  <button class="attach-image">Upload Image</button>
+
+
+</form>

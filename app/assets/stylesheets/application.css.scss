@@ -120,7 +120,7 @@ div {
 
 .header-nav {
   position: relative;
-  width: 878px;
+  width: 737px;
   margin: 0px auto;
   font-size: 14px;
   font-weight: 500;
@@ -683,4 +683,10 @@ li.comment-to-answer {
 
 .menu-opener {
   cursor: pointer;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
