@@ -43,6 +43,12 @@ GEM
     autoprefixer-rails (6.0.2)
       execjs
       json
+    aws-sdk (2.1.21)
+      aws-sdk-resources (= 2.1.21)
+    aws-sdk-core (2.1.21)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.21)
+      aws-sdk-core (= 2.1.21)
     backbone-on-rails (1.2.0.0)
       eco
       ejs
@@ -95,6 +101,8 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -220,6 +228,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk
   backbone-on-rails
   bcrypt
   better_errors
