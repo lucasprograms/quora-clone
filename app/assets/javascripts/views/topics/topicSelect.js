@@ -7,8 +7,8 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
       'sync',
       this.render
     );
-    // this.collection.fetch();
-    // this.coverBackground();
+
+    this.coverBackground();
   },
 
   events : {
