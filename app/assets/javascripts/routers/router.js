@@ -23,7 +23,16 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     "topics/new" : "topicSelect",
     "search/:query" : "search",
     "answers/:id" : "showQuestionAnswer",
-    "user/edit/bio" : "editBio"
+    "user/bio" : "editBio"
+  },
+
+  editBio: function () {
+    var callback = this.search.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var _userBio = new QuoraClone.Views.UserBio();
+
+    this._swapView(_userBio);
   },
 
   search: function (query) {

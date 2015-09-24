@@ -2,7 +2,7 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
   template: JST['shared/userBio'],
 
   initialize: function () {
-    this.render();
+    // this.render();
   },
 
   events : {
@@ -23,6 +23,8 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
       },
       dataType: "json",
       success: function(data) {
+        debugger
+        
         QuoraClone.currentUser.set(data);
         Backbone.history.navigate("", {trigger: true});
       }
