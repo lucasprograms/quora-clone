@@ -8,6 +8,10 @@ QuoraClone.Views.fbLanding = Backbone.View.extend({
   },
 
   navigate: function () {
-    Backbone.history.navigate("", { trigger: true });
+    if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
+      Backbone.history.navigate("topics/new", { trigger: true });
+    } else {
+      Backbone.history.navigate("", { trigger: true });
+    }
   }
 });

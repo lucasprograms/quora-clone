@@ -28,8 +28,9 @@ QuoraClone.Views.UsersForm = Backbone.View.extend({
     this.model.save({}, {
       success: function(){
         QuoraClone.currentUser.fetch();
+        QuoraClone.userCollection.fetch();
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("#topics/new", { trigger: true });
+        Backbone.history.navigate("", { trigger: true });
         $("html div.cover-background-picture").remove();
       },
       error: function(data){

@@ -10,6 +10,8 @@ window.QuoraClone = {
     this.header = new QuoraClone.Views.Header({ el: "#header" });
     this.router = new QuoraClone.Routers.Router({ $rootEl: $("#main") });
 
+    this.userCollection = new QuoraClone.Collections.Users(); 
+
     Backbone.history.start();
   }
 };

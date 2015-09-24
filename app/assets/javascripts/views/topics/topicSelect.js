@@ -59,7 +59,6 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
         },
         dataType: "json",
         success: function(data) {
-          debugger
           QuoraClone.currentUser.set(data);
           Backbone.history.navigate("", {trigger: true});
         }

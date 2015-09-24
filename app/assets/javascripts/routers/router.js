@@ -9,11 +9,6 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this.collection = new QuoraClone.Collections.Users();
-
-    if (QuoraClone.currentUser.get('id')) {
-      this.collection.fetch();
-    }
-
   },
 
   routes: {
@@ -58,11 +53,11 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   newSesh: function (callback) {
     if (!this._requireSignedOut()) { return; }
 
-    var model = new this.collection.model();
+    var model = new QuoraClone.userCollection.model();
 
     var newSeshView = new QuoraClone.Views.NewSeshForm({
       callback: callback,
-      collection: this.collection,
+      collection: QuoraClone.userCollection,
       model: model
     });
 
@@ -72,9 +67,9 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   new: function(){
     if (!this._requireSignedOut()) { return; }
 
-    var model = new this.collection.model();
+    var model = new QuoraClone.userCollection.model();
     var formView = new QuoraClone.Views.UsersForm({
-      collection: this.collection,
+      collection: QuoraClone.userCollection,
       model: model
     });
     this._swapView(formView);
@@ -84,7 +79,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.show.bind(this, id);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var model = this.collection.getOrFetch(id);
+    var model = QuoraClone.userCollection.getOrFetch(id);
 
     var showView = new QuoraClone.Views.UsersShow({
       model: model
@@ -98,7 +93,6 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
     var _landing = new QuoraClone.Views.fbLanding();
-
     QuoraClone.currentUser.fetch();
 
     this._swapView(_landing);
@@ -109,16 +103,15 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
 
     var signInView = new QuoraClone.Views.SignIn({
       callback: callback,
-      collection: this.collection
+      collection: QuoraClone.userCollection
     });
 
     this._swapView(signInView);
   },
 
   userFeed: function () {
-    // debugger
     if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
-      Backbone.history.navigate("topics/new", { trigger: true });
+      Backbone.history.navigate("_=_", { trigger: true });
     } else {
       var callback = this.userFeed.bind(this);
       if (!this._requireSignedIn(callback)) { return; }
@@ -169,7 +162,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var _questionShow = new QuoraClone.Views.QuestionShow({
       topics: this.all_topics,
       model: question,
-      users: this.collection
+      users: QuoraClone.userCollection
     });
 
     this._swapView(_questionShow);
