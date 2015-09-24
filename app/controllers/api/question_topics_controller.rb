@@ -17,12 +17,12 @@ class Api::QuestionTopicsController < ApplicationController
     end
 
     def index
-      @question_topics = QuestionTopic.includes(:answers).all
+      @question_topics = QuestionTopic.includes(:question, :topic).all
       render json: @question_topics
     end
 
     def show
-      @question_topic = QuestionTopic.includes(:answers).find(params[:id])
+      @question_topic = QuestionTopic.includes(:question, :topic).find(params[:id])
       render :show
     end
 

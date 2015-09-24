@@ -15,8 +15,6 @@ json.answer_upvotes answer.answer_upvotes
 
 json.num_upvotes answer.answer_upvotes.size
 
-json.num_downvotes answer.answer_downvotes.size
-
 if answer.answer_upvotes.find_by(user_id: current_user.id)
   json.has_upvoted true
 else

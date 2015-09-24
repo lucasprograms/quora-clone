@@ -22,7 +22,8 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     "session/new" : "newSesh",
     "topics/new" : "topicSelect",
     "search/:query" : "search",
-    "answers/:id" : "showQuestionAnswer"
+    "answers/:id" : "showQuestionAnswer",
+    "user/edit/bio" : "editBio"
   },
 
   search: function (query) {

@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
 
   has_many :answer_upvotes
   has_many :upvoted_answers, :through => :answer_upvotes, :source => :answer
-  has_many :answer_downvotes
-  has_many :downvoted_answers, :through => :answer_downvotes, :source => :answer
 
   has_many :answer_comments, :class_name => 'AnswerComment', :foreign_key => :author_id
 

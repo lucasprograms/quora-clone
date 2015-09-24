@@ -18,7 +18,7 @@ class Api::AnswersController < ApplicationController
   end
 
   def index
-    @answers = Answer.includes(:question, :answer_upvotes, :answer_downvotes, :answer_comments).all
+    @answers = Answer.includes(:question, :answer_upvotes, :answer_comments, :upvoters).all
     if logged_in?
       @upvotes_hash = current_user.upvoted_answers_hash
       @downvotes_hash = current_user.downvoted_answers_hash
@@ -30,13 +30,11 @@ class Api::AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.includes(:question, :answer_upvotes, :answer_downvotes, :answer_comments).find(params[:id])
+    @answer = Answer.includes(:question, :answer_upvotes, :answer_comments, :upvoters).find(params[:id])
     @upvotes_hash = {}
-    @downvotes_hash = {}
 
     if logged_in?
       @upvotes_hash[@answer.id] = @answer.answer_upvotes.find_by(user_id: current_user.id)
-      @downvotes_hash[@answer.id] = @answer.answer_downvotes.find_by(user_id: current_user.id)
     end
 
     render :show
