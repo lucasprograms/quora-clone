@@ -10,6 +10,7 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
     "click button" : "newQuestion",
     "submit .search" : "commenceSearch",
     "click .menu-opener" : "toggleMenu",
+    "click .header-menu-item" : "closeMenu"
   },
 
   template: JST['shared/header'],

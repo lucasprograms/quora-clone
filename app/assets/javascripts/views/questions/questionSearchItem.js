@@ -3,12 +3,6 @@ QuoraClone.Views.QuestionSearchItem = Backbone.View.extend({
   className: 'search-item',
 
   initialize: function () {
-    // this.listenTo(
-    //   this.model,
-    //   'sync',
-    //   this.render
-    // );
-    // this.model.fetch();
     this.render();
   },
 

@@ -1,11 +1,11 @@
 class Api::UsersController < ApplicationController
     def index
-      @users = User.includes(:subscribed_topics).all
+      @users = User.includes(:subscribed_topics, :questions, :answers, :answer_comments).all
       render :index
     end
 
     def show
-      @user = User.includes(:subscribed_topics).find(params[:id])
+      @user = User.includes(:subscribed_topics, :questions, :answers, :answer_comments).find(params[:id])
       render :show
     end
 

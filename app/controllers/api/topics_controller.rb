@@ -17,12 +17,12 @@ class Api::TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.includes(:subscribers, :questions).all
+    @topics = Topic.includes(:subscribers, :questions, :answers).all
     render :index
   end
 
   def show
-    @topic = Topic.includes(:subscribers, :questions).find(params[:id])
+    @topic = Topic.includes(:subscribers, :questions, :answers).find(params[:id])
     render :show
   end
 
