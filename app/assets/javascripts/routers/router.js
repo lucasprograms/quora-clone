@@ -14,7 +14,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '' : 'userFeed',
-    '_=_' : 'userFeed',
+    '_=_' : 'fbLanding',
     'questions' : 'indexQuestions',
     'questions/new' : 'newQuestion',
     'questions/:id' : 'showQuestion',
@@ -41,11 +41,12 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.topicSelect.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var selectTopicView = new QuoraClone.Views.TopicSelect({
-      collection: this.all_topics
-    });
+    var topics = new QuoraClone.Collections.Topics();
+    topics.fetch();
 
-    this.all_topics.fetch();
+    var selectTopicView = new QuoraClone.Views.TopicSelect({
+      collection: topics
+    });
 
     this._swapView(selectTopicView);
   },
@@ -87,6 +88,17 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     this._swapView(showView);
   },
 
+  fbLanding: function () {
+    var callback = this.fbLanding.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var _landing = new QuoraClone.Views.fbLanding();
+
+    QuoraClone.currentUser.fetch();
+
+    this._swapView(_landing);
+  },
+
   signIn: function(callback){
     if (!this._requireSignedOut(callback)) { return; }
 
@@ -99,16 +111,20 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   },
 
   userFeed: function () {
-    var callback = this.userFeed.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
+    if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
+      this.topicSelect();
+    } else {
+      var callback = this.userFeed.bind(this);
+      if (!this._requireSignedIn(callback)) { return; }
 
-    var _feed = new QuoraClone.Views.FeedShow({
-      collection: this.user_topics
-    });
+      var _feed = new QuoraClone.Views.FeedShow({
+        collection: this.user_topics
+      });
 
-    QuoraClone.currentUser.fetch();
+      QuoraClone.currentUser.fetch();
 
-    this._swapView(_feed);
+      this._swapView(_feed);
+    }
   },
 
   indexQuestions: function () {

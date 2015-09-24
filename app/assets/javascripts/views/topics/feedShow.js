@@ -2,10 +2,6 @@ QuoraClone.Views.FeedShow = Backbone.CompositeView.extend({
   template: JST['topics/feedShow'],
 
   initialize: function () {
-    if (!QuoraClone.CurrentUser.get('HasEverLoggedIn')) {
-      Backbone.history.navigate("topics/new", { trigger: true });
-    }
-    
     this.listenTo(
       QuoraClone.currentUser,
       'sync',

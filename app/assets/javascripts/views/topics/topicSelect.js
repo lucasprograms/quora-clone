@@ -2,14 +2,13 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
   template: JST['topics/topicSelect'],
 
   initialize: function () {
-    QuoraClone.currentUser.set('has_ever_logged_in', true);
-
     this.listenTo(
       this.collection,
       'sync',
       this.render
     );
-    this.coverBackground();
+    // this.collection.fetch();
+    // this.coverBackground();
   },
 
   events : {
@@ -54,7 +53,10 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
       $.ajax({
         url: "/api/users/" + QuoraClone.currentUser.get('id'),
         type: "PATCH",
-        data: {"user[subscribed_topic_ids]" : topic_ids},
+        data: {
+          "user[subscribed_topic_ids]" : topic_ids,
+          "user[has_ever_logged_in]" : true
+        },
         dataType: "json",
         success: function(data) {
           QuoraClone.currentUser.set(data);

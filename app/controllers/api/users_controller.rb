@@ -35,6 +35,6 @@ class Api::UsersController < ApplicationController
     protected
 
     def user_params
-      self.params.require(:user).permit(:first_name, :last_name, :email, :password, subscribed_topic_ids: [])
+      self.params.require(:user).permit(:first_name, :last_name, :email, :password, :has_ever_logged_in, subscribed_topic_ids: [])
     end
 end
