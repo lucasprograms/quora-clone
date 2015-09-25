@@ -1,0 +1,40 @@
+<div class="user-bio-edit-wrapper">
+
+
+  <form class="user-bio-edit-form">
+    <p class="status-msg-bio">
+
+    </p>
+    <div class="user-bio-text group">
+      <textarea class="user-bio-textarea" placeholder="Add some tidbitz"><%= bio %></textarea>
+      <button class="submit-bio primary-button">
+        Update Bio
+      </button>
+    </div>
+
+    <div class="user-bio-img group">
+      <div class="file-upload-field group">
+        <img src="<%= img %>" class="avatar edit-bio-page">
+
+        <input class="real-file-upload" type="file" name="user[avatar]" id="input-image">
+
+      </div>
+      <div class="edit-bio-buttons group">
+
+
+        <button class="upload-image-button">
+        </button>
+
+        <button class="attach-image-button primary-button">
+          Update Avatar
+        </button>
+
+        <p class="status-msg-img">
+
+        </p>
+      </div>
+
+    </div>
+  </form>
+
+</div>

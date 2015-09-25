@@ -1,5 +1,5 @@
-QuoraClone.Views.UserBio = Backbone.View.extend({
-  template: JST['shared/userBio'],
+QuoraClone.Views.UserEditBio = Backbone.View.extend({
+  template: JST['shared/userBioEdit'],
 
   initialize: function () {
     this.listenTo(
@@ -7,11 +7,23 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
       "sync",
       this.render
     );
+
   },
 
   events : {
     'click .submit-bio' : 'submitBio',
-    'click .attach-image' : 'submitImg'
+    'click .upload-image-button' : 'submitImg',
+    'click .attach-image-button' : 'clickFileAttach',
+    'change input:file' : 'uploadFileTrigger'
+  },
+
+  clickFileAttach: function () {
+    $("input#input-image.real-file-upload" ).trigger( "click" );
+  },
+
+  uploadFileTrigger: function () {
+    $(".upload-image-button" ).trigger( "click" );
+    $(".status-msg-img").text("Successsssssss");
   },
 
   render: function () {
@@ -30,12 +42,12 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
       url: "/api/users/" + QuoraClone.currentUser.get('id'),
       type: "PATCH",
       data: {
-        "user[bio]" : $(".user-bio").val()
+        "user[bio]" : $(".user-bio-textarea").val()
       },
       dataType: "json",
       success: function(data) {
         QuoraClone.currentUser.set(data);
-        $(".status-msg").text("Bio Updated!");
+        $(".status-msg-bio").text("Bio Updated!");
       }
     });
   },
@@ -50,7 +62,6 @@ QuoraClone.Views.UserBio = Backbone.View.extend({
     var that = this;
     QuoraClone.currentUser.saveFormData(formData, {
       success: function () {
-        $(".status-msg").text("Avatar Updated!");
         QuoraClone.currentUser.fetch();
       }
     });

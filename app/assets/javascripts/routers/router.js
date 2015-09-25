@@ -30,7 +30,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.editBio.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var _userBio = new QuoraClone.Views.UserBio();
+    var _userBio = new QuoraClone.Views.UserEditBio();
 
     this._swapView(_userBio);
   },
@@ -120,7 +120,6 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   },
 
   userFeed: function () {
-    debugger
     if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
       Backbone.history.navigate("_=_", { trigger: true });
     } else {

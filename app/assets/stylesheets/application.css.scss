@@ -717,3 +717,65 @@ li.comment-to-answer {
 .upvote-button {
   min-width: 85px;
 }
+
+.user-bio-edit-form {
+  display: inline-block;
+}
+
+.user-bio-edit-wrapper {
+  text-align: center
+}
+
+.user-bio-text > textarea {
+  text-align: left;
+  min-height: 120px;
+}
+
+.user-bio-text {
+  margin: 20px 0 40px 0;
+}
+
+.file-upload-field {
+  width: 100%;
+  margin: 0 0 36px 0;
+}
+
+.attach-image-button {
+  margin: 0 auto;
+  float: none;
+}
+
+.upload-image-button {
+  display: none;
+}
+
+.file-upload-field > input {
+  float: right;
+}
+
+.avatar.edit-bio-page {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+}
+
+.real-file-upload {
+  position: absolute;
+  top: -100px;
+}
+
+.edit-bio-buttons {
+  width: 100%;
+}
+
+.submit-bio {
+  float: none;
+  margin: 0 auto;
+  width: 101px;
+}
+
+.status-msg-img {
+  text-decoration: underline;
+  font-size: 12px;
+  font-family: monospace;
+}
