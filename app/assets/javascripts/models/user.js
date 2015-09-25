@@ -97,7 +97,6 @@ QuoraClone.Models.CurrentUser = QuoraClone.Models.User.extend({
       processData: false,
       contentType: false,
       success: function () {
-        debugger
         options.success && options.success();
       }
     });

@@ -120,6 +120,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
   },
 
   userFeed: function () {
+    debugger
     if (!QuoraClone.currentUser.get('has_ever_logged_in')) {
       Backbone.history.navigate("_=_", { trigger: true });
     } else {

@@ -22,9 +22,11 @@ QuoraClone.Views.TopicSelect = Backbone.CompositeView.extend({
   render: function () {
     var ids = [];
 
-    QuoraClone.currentUser.topics().each( function(topic){
-      ids.push(topic.escape('id'));
-    });
+    if (QuoraClone.currentUser.get('subscribed_topic_ids')) {
+      QuoraClone.currentUser.get('subscribed_topic_ids').forEach( function(topic_id){
+        ids.push(topic_id.toString());
+      });
+    }
 
     this.$el.html(this.template({
       topics: this.collection,

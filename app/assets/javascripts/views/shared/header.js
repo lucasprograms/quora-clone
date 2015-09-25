@@ -25,6 +25,27 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
 
   signOut: function(event){
     event.preventDefault();
+
+    if (QuoraClone.currentUser.get('first_name') === 'Demo User') {
+
+      $.ajax({
+        url: "/api/users/" + QuoraClone.currentUser.get('id'),
+        type: "PATCH",
+        data: {
+          "user[avatar]" : "http://www.sinaiem.org/people/files/2013/03/missing.png",
+          "user[bio]" : "",
+          "user[subscribed_topic_ids]" : [""],
+          "user[has_ever_logged_in]" : false
+        },
+        dataType: "json",
+        success: function(data) {
+          console.log('success!');
+          QuoraClone.currentUser.set(data);
+        }
+
+      });
+    }
+
     QuoraClone.currentUser.signOut({
       success: function(){
         Backbone.history.navigate("session/new", { trigger: true });

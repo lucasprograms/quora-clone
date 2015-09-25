@@ -108,6 +108,7 @@ div {
 }
 
 .header {
+  text-align: center;
   position: fixed;
   border-top: 2px solid #b92b27;
   border-bottom: 1px solid #ccc;
@@ -116,11 +117,11 @@ div {
   width: 100%;
   z-index: 1000;
   background-color: #fff;
+  height: 48px;
 }
 
 .header-nav {
-  position: relative;
-  width: 737px;
+  display: inline-block;
   margin: 0px auto;
   font-size: 14px;
   font-weight: 500;
@@ -154,7 +155,7 @@ div {
 }
 
 .header-nav > form {
-  padding: 14px 15px 8px 15px;
+  padding: 14px 15px 7px 15px;
 }
 
 .header-nav > a:first-child {
@@ -167,7 +168,7 @@ div {
 }
 
 .header-nav > a:first-child:hover {
-  background: inherit;
+  background: none;
 }
 
 .primary-button.header-button {
@@ -625,7 +626,7 @@ li.comment-to-answer {
 .header-menu {
   display: none;
   position: fixed;
-  top: 52px;
+  top: 51px;
   left: 60%;
   width: 100%;
   z-index: 1001;
@@ -643,6 +644,10 @@ li.comment-to-answer {
   padding: 10px 0px;
   margin: 0px 5px;
   border-bottom: 1px solid #aaa;
+}
+
+.header-menu a:hover {
+  color: #bbb;
 }
 
 .header-menu > li:last-child {
@@ -702,4 +707,9 @@ li.comment-to-answer {
 
 .author-info {
   float: left
+}
+
+.demo-user {
+  margin: 20px 0 0 0;
+  display: block;
 }

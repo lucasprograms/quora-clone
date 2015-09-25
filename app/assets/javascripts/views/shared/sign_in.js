@@ -6,7 +6,8 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .demo-user" : "signInDemoUser"
   },
 
   template: JST['shared/sign_in'],
@@ -39,6 +40,17 @@ QuoraClone.Views.SignIn = Backbone.View.extend({
       QuoraClone.userCollection.fetch();
       Backbone.history.navigate("", { trigger: true });
     }
+  },
+
+  signInDemoUser: function (e) {
+    e.preventDefault();
+    QuoraClone.currentUser.signIn({
+      email: "demo@demo.demo",
+      password: "demodemo",
+      error: function(){
+        alert("Something went wrong. Hire me anyways?");
+      }
+    });
   }
 
 });
