@@ -19,22 +19,28 @@ QuoraClone.Views.Search = Backbone.CompositeView.extend({
 
 	render: function () {
 		this.$el.html(this.template);
-		this.searchResults.each( function(model) {
 
-			if (model instanceof QuoraClone.Models.Answer) {
-				var _answerSearchView = new QuoraClone.Views.AnswerSearchItem({
-					model: model
-				});
+		if (this.searchResults.length === 0) {
+			$(".status-msg").text("No Results");
+		} else {
+			this.searchResults.each( function(model) {
 
-				this.addSubview(".results", _answerSearchView);
-			} else {
-				var _questionSearchView = new 		QuoraClone.Views.QuestionSearchItem({
-					model: model
-				});
+				if (model instanceof QuoraClone.Models.Answer) {
+					var _answerSearchView = new QuoraClone.Views.AnswerSearchItem({
+						model: model
+					});
 
-				this.addSubview(".results", _questionSearchView);
-			}
-		}.bind(this));
+					this.addSubview(".results", _answerSearchView);
+				} else {
+					var _questionSearchView = new 		QuoraClone.Views.QuestionSearchItem({
+						model: model
+					});
+
+					this.addSubview(".results", _questionSearchView);
+				}
+			}.bind(this));
+		}
+
 
 		return this;
 	},

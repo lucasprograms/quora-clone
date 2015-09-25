@@ -17,6 +17,7 @@ QuoraClone.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    debugger
     this.$el.html(this.template({
       question: this.model
     }));
