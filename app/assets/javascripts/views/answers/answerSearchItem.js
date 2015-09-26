@@ -12,6 +12,15 @@ QuoraClone.Views.AnswerSearchItem = Backbone.View.extend({
 
   },
 
+  events : {
+    'click .question-answer-item-wrapper' : 'navigate'
+  },
+
+  navigate: function () {
+    debugger
+    Backbone.history.navigate("answers/" + this.model.get('id'), {trigger: true});
+  },
+
   render: function () {
     this.$el.html(this.template({
       answer: this.model,

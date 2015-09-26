@@ -1,9 +1,18 @@
 QuoraClone.Views.QuestionSearchItem = Backbone.View.extend({
   template: JST['questions/questionSearchItem'],
-  className: 'search-item',
+  className: 'question-search-item',
 
   initialize: function () {
     this.render();
+  },
+
+  events : {
+    'click .question-answer-item-wrapper' : 'navigate'
+  },
+
+  navigate: function () {
+    debugger
+    Backbone.history.navigate("questions/" + this.model.get('id'), {trigger: true});
   },
 
   render: function () {

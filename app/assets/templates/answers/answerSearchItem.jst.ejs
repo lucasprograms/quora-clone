@@ -1,27 +1,25 @@
 
   <div class='search-item'>
-    <a href="#answers/<%= answer.escape('id')%>">
-      <div class="question-answer-item-wrapper">
-          <div class="feed question-title">
-            <%= answer.question().escape('title') %>
-          </div>
+    <div class="question-answer-item-wrapper search-item">
+        <div class="feed question-title">
+          <%= answer.question().escape('title') %>
+        </div>
 
-          <div class="feed answer-author group">
-            <% biography = !bio ? "No Bio" : bio %>
-            <span class="author-avatar">
-              <img src="<%= img %>" class="avatar">
-            </span>
-            <span class="author-info">
-              <span class="author-name">
-                <%= author.escape('first_name') %> <%= author.escape('last_name') %>
-              </span class="author-name">
-                • <%= biography %>
-            </span>
-          </div>
+        <div class="feed answer-author group">
+          <% biography = !bio ? "No Bio" : bio %>
+          <span class="author-avatar">
+            <img src="<%= img %>" class="avatar">
+          </span>
+          <span class="author-info">
+            <span class="author-name">
+              <%= author.escape('first_name') %> <%= author.escape('last_name') %>
+            </span class="author-name">
+              • <%= biography %>
+          </span>
+        </div>
 
-          <div class="search answer-body">
-            <%= answer.escape('body').substring(0, 200) %> ....
-          </div>
-      </div>
-    </a>
+        <div class="search answer-body">
+          <%= answer.escape('body').substring(0, 200) %> ....
+        </div>
+    </div>
   </div>

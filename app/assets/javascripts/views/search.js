@@ -28,7 +28,7 @@ QuoraClone.Views.Search = Backbone.CompositeView.extend({
 
 				this.addSubview(".results", _answerSearchView);
 			} else {
-				var _questionSearchView = new 		QuoraClone.Views.QuestionSearchItem({
+				var _questionSearchView = new QuoraClone.Views.QuestionSearchItem({
 					model: model
 				});
 

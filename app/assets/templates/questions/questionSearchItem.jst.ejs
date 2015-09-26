@@ -1,14 +1,12 @@
 <div class='search-item'>
-  <a href="#questions/<%= question.escape('id')%>">
-    <div class="question-answer-item-wrapper">
-      <div class="feed question-title">
-        <%= question.escape('title') %>
-      </div>
-
-      <div class="feed answer-author">
-        <% biography = !bio ? "No Bio" : bio %>
-        <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • <%= biography %>
-      </div>
+  <div class="question-answer-item-wrapper search-item">
+    <div class="feed question-title">
+      <%= question.escape('title') %>
     </div>
-  </a>
+
+    <div class="feed answer-author">
+      <% biography = !bio ? "No Bio" : bio %>
+      <span class="author-name"><%= author.escape('first_name') %> <%= author.escape('last_name') %></span class="author-name"> • <%= biography %>
+    </div>
+  </div>
 </div>
