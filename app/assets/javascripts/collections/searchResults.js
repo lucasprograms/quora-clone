@@ -15,7 +15,7 @@ QuoraClone.Collections.SearchResults = Backbone.Collection.extend({
 		delete attrs._type;
 
 		var model = new QuoraClone.Models[type]();
-		
+
 		model.set(model.parse(attrs));
 
 		return model;

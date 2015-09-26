@@ -26,6 +26,11 @@ class Api::TopicsController < ApplicationController
     render :show
   end
 
+  def topic_name_index
+    @topics = Topic.all
+    render :topic_name_index
+  end
+
   def topic_params
     params.require(:topic).permit(:subject)
   end

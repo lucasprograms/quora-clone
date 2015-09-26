@@ -50,7 +50,7 @@ QuoraClone.Routers.Router = Backbone.Router.extend({
     var callback = this.topicSelect.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var topics = new QuoraClone.Collections.Topics();
+    var topics = new QuoraClone.Collections.TopicNames();
     topics.fetch();
 
     var selectTopicView = new QuoraClone.Views.TopicSelect({
