@@ -24,7 +24,7 @@ The purpose of building fauxrum is to demonstrate my skill with various language
   * Backbone.js
   * Ruby on Rails
 
-## Libraries and Technologies
+### Libraries and Technologies
 
   * bcrypt
   * AJAX
@@ -35,6 +35,7 @@ The purpose of building fauxrum is to demonstrate my skill with various language
   * omniauth
   * paperclip
   * pg_search
+
 
 ## Features
 
