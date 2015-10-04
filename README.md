@@ -26,6 +26,7 @@ The purpose of building fauxrum is to demonstrate my skill with various language
 
 ### Libraries and Technologies
 
+  * bcrypt
   * AJAX
   * figaro
   * jbuilder
@@ -35,10 +36,22 @@ The purpose of building fauxrum is to demonstrate my skill with various language
   * paperclip
   * pg_search
 
+### Features
+
+  * Secure account creation
+  * Follow topics of interest
+  * View an answer feed based on your followed topics
+  * Ask questions
+  * Answer questions
+  * Comment on answers
+  * Upvote answers
+  * Edit your user bio and avatar
+  * Search for questions and answers
+
+
 ### Future Features
 
   * infinite scroll
-  * Follows
   * Notifications
   * More advanced search (typeahead search bar, filter options)
   * Multiple sessions/session management
