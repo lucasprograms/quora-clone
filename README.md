@@ -4,10 +4,6 @@
 
 [live link]: http://fauxrum.xyz
 
-[Heroku link][heroku]
-
-[heroku]: http://quora-clone.herokuapp.com
-
 ## Description
 
 fauxrum is a clone of Quora, a popular question and answer website. Mine doesn't have quite the same user base, but it shares many of the same features, such as nested comments and a search function.
