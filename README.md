@@ -1,8 +1,12 @@
 # fauxrum
 
+[fauxrum link][live link]
+
+[live link]: http://fauxrum.xyz
+
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://quora-clone.herokuapp.com
 
 ## Description
 
