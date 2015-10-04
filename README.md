@@ -4,30 +4,41 @@
 
 [heroku]: http://flux-capacitr.herokuapp.com
 
-## Minimum Viable Product
-A clone of Quora built on Rails and Backbone. Users can:
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create questions
-- [x] Answer questions
-- [x] View questions and answers
-- [x] Follow topics
-- [x] View a feed of followed topics
-- [x] Search for questions and answers
-- [x] Comment on question or answer
-
 ## Description
 
 fauxrum is a clone of [Quora][Quora.com]
-[Quora.com]: http://www.quora.com
+[Quora.com]: http://www.quora.com , a popular question and answer website. Mine doesn't have quite the same user base, but it shares many of the same features, such as nested comments and a search function.
 
-### Bonus Features (TBD)
-- [x] Comments
-- [x] Upvote and counter for questions and answers
-- [ ] infinite scroll
-- [ ] Follows
-- [ ] Notifications
-- [ ] More advanced search (typeahead search bar, filter options)
-- [ ] Multiple sessions/session management
-- [x] User images
+The purpose of building fauxrum is to demonstrate my skill with various languages, frameworks, and libraries. The specifics of these are detailed below.
+
+## Building Materials
+
+### Languages
+
+  * HTML / CSS
+  * Javascript
+  * Ruby
+
+### Frameworks
+
+  * Backbone.js
+  * Ruby on Rails
+
+### Libraries and Technologies
+
+  * AJAX
+  * figaro
+  * jbuilder
+  * jQuery
+  * kaminari
+  * omniauth
+  * paperclip
+  * pg_search
+
+### Future Features
+
+  * infinite scroll
+  * Follows
+  * Notifications
+  * More advanced search (typeahead search bar, filter options)
+  * Multiple sessions/session management
