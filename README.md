@@ -19,7 +19,8 @@ A clone of Quora built on Rails and Backbone. Users can:
 
 ## Description
 
-fauxrum is a clone of [Quora.com]: http://www.quora.com
+fauxrum is a clone of [Quora][Quora.com]
+[Quora.com]: http://www.quora.com
 
 ### Bonus Features (TBD)
 - [x] Comments
