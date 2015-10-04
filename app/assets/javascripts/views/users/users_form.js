@@ -35,7 +35,6 @@ QuoraClone.Views.UsersForm = Backbone.View.extend({
       },
       error: function(data){
         alert("Form invalid");
-        console.log(data);
       }
     });
   }

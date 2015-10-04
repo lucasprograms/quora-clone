@@ -39,7 +39,6 @@ QuoraClone.Views.Header = Backbone.CompositeView.extend({
         },
         dataType: "json",
         success: function(data) {
-          console.log('success!');
           QuoraClone.currentUser.set(data);
         }
 
