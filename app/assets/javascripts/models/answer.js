@@ -1,5 +1,5 @@
 QuoraClone.Models.Answer = Backbone.Model.extend({
-//  _.extend({}, QuoraClone.Mixins.Upvotable, {
+
     urlRoot: 'api/answers',
 
     answerComments: function () {
@@ -121,5 +121,5 @@ QuoraClone.Models.Answer = Backbone.Model.extend({
     },
 
 
-//  })
+
 });
