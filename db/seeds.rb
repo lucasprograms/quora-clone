@@ -25,9 +25,9 @@ topics = Topic.create([
   ])
 
 users = User.create([
-  {email: 'lambda@aa.io', password: 'lambda', first_name: 'Charles', last_name: 'Biddensworth', subscribed_topic_ids: [4, 8, 12, 14, 15], has_ever_logged_in: true},
-  {email: 'lucasm@aa.io', password: 'lucasm', first_name: 'Elizabeth', last_name: 'Reddington', subscribed_topic_ids: [3, 9, 10, 11], has_ever_logged_in: true},
-  {email: 'quimbies@aa.io', password: 'quimbies', first_name: 'Redford', last_name: 'Calvington', subscribed_topic_ids: [1, 3, 11], has_ever_logged_in: true },
+  {email: 'lambda@aa.io', password: 'lambda', first_name: 'Charles', last_name: 'Biddensworth', subscribed_topic_ids: [4, 8, 12, 14, 15], has_ever_logged_in: true, bio: 'As fine a Biddensworth as they make them. A proper British lad.'},
+  {email: 'lucasm@aa.io', password: 'lucasm', first_name: 'Elizabeth', last_name: 'Reddington', subscribed_topic_ids: [3, 9, 10, 11], has_ever_logged_in: true, bio: 'Expert Crumpeteerer, tallywhimbling enthusiast'},
+  {email: 'quimbies@aa.io', password: 'quimbies', first_name: 'Redford', last_name: 'Calvington', subscribed_topic_ids: [1, 3, 11], has_ever_logged_in: true},
   {email: 'hester@aa.io', password: 'hester', first_name: 'Hester', last_name: "Clifton", subscribed_topic_ids: [9, 14, 11], has_ever_logged_in: true },
   {email: 'demo@demo.demo', password: 'demodemo', first_name: 'Demo User', last_name: 'User', subscribed_topic_ids: [], has_ever_logged_in: false }
   ])
