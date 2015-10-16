@@ -12,7 +12,6 @@ QuoraClone.Views.Search = Backbone.CompositeView.extend({
 	events: {
 		"change .query": "search",
 		"click .next-page": "nextPage",
-		"click .prev-page": "prevPage" // not implemented, but you can figure it out
 	},
 
 	template: JST.search,
@@ -103,15 +102,6 @@ QuoraClone.Views.Search = Backbone.CompositeView.extend({
 			}.bind(this)
 		});
 	},
-
-	// Infinite scroll can be improved even more by using subviews.
-	// Right now, we're rerendering the whole view when we add the
-	// 25 results of the next page. Instead, a better approach would be
-	// to `append` the html for each new result. This is way easy if we
-	// have a subview for each result. We would also `listenTo` collection
-	// `add` instead of `sync`. The callback to the `add` gets passed the
-	// model that was just added, so at that point you can instantiate a
-	// subview and append it to the list.
 
 	nextPageInfiniteScroll: function () {
 		if (this.requestingNextPage) return;
