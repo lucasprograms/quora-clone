@@ -66,11 +66,13 @@ QuoraClone.Views.AnswerShowView = Backbone.CompositeView.extend({
 
   submit: function (e) {
     e.preventDefault();
+
     this.answerComment = new QuoraClone.Models.AnswerComment();
     var id = $(e.currentTarget).data('id');
 
+    debugger
     this.answerComment.set({
-      body: $(body).val(),
+      body: this.$el.find('#body').val(),
       answer_id: id
     });
 
